@@ -175,7 +175,7 @@ When a printed Pantone red looks slightly yellow or dark on a specific plastic s
     title: 'Module 2: Substrate Engineering, Surface Chemistry & Yield',
     category: 'Materials & Production',
     iconName: 'Layers',
-    shortDesc: 'Master rigid and flexible media properties, Corona Dyne testing, static charge suppression, grain orientation, and the OVERS depletion rule.',
+    shortDesc: 'Master rigid and flexible media properties, Corona Dyne testing, static charge suppression, grain orientation, and handling overages.',
     estimatedHours: '4.0 Hours',
     difficulty: 'Foundation',
     lessons: [
@@ -217,14 +217,14 @@ Corrugated board strength is directional. Internal flutes act as structural colu
       },
       {
         id: 'm2-l2',
-        title: 'Lesson 2.2: Corona Dyne Testing, Static Suppression & OVERS Policies',
+        title: 'Lesson 2.2: Corona Dyne Testing, Static Suppression & Managing Overages',
         duration: '50 mins',
-        summary: 'How to perform Corona Dyne testing, apply adhesion primers, eliminate static electricity, and enforce the OVERS depletion mandate.',
+        summary: 'How to perform Corona Dyne testing, apply adhesion primers, eliminate static electricity, and manage print overages effectively.',
         keyTakeaways: [
           'UV inks require a substrate surface energy >= 44 dynes/cm for chemical adhesion.',
           'If Dyne pen ink beads up within 2 seconds, surface energy is too low. Apply chemical adhesion primer wipe or flame treatment.',
           'Static charge (>15,000V) deflects flying droplets, causing fuzzy text overspray. Use ionizing anti-static bars.',
-          'The OVERS Mandate: Always inspect OVERS inventory and deduct existing stock components before starting new print runs.'
+          'Managing Overages: Always inspect existing overage inventory and deduct available stock components before starting new print runs to reduce waste.'
         ],
         content: `
 ## 1. Dyne Level Surface Energy Testing SOP
@@ -251,14 +251,14 @@ Friction during sheet unstacking generates static charges exceeding **$15,000\\t
 
 ---
 
-## 3. The "OVERS" Depletion Mandate
-In display manufacturing, minimum sheet nest setups frequently generate extra components ("OVERS").
+## 3. Managing Production Overages ("Overs")
+In display manufacturing, nesting multiple components on a standard-sized board frequently generates extra pieces ("Overs").
 
 > [!IMPORTANT]
-> **Mandatory OVERS Rule**:
-> 1. **Record & Store**: When a job completes, any extra header cards or side panels must be tagged with the docket number and placed in assigned inventory racks.
-> 2. **Check Before Printing**: Before starting a repeat job order, check Monday.com OVERS inventory logs.
-> 3. **Deduct**: If 50 extra headers exist in OVERS inventory for a 500-unit order, deduct 50 units and print only 450 new headers. Printing full sheets "just because it is easier" is strictly forbidden.
+> **Handling Overage Inventory**:
+> 1. **Record & Store**: When a job completes, any extra pieces should be tagged with the job ID and stored properly.
+> 2. **Check Before Printing**: Before starting a repeat job order, verify the inventory logs for any existing overages.
+> 3. **Deduct**: If 50 extra pieces exist in inventory for a 500-unit order, print only 450 new pieces. This minimizes material waste and optimizes production time.
         `
       }
     ]
@@ -342,7 +342,7 @@ Commercial print pre-press requires isolating artwork, vector cut lines, registr
 ## 3. Barcode Automation Workflow
 i-cut automatically prints a 1D Code-128 or 2D QR barcode at the leading edge of the printed sheet.
 - When the cutter operator lays the pallet on the Kongsberg/MultiCam table, the optical camera scans the barcode.
-- The cutter software queries the local network server, retrieves job docket \`WWD-8942.ACM\`, and loads the exact cutting tool paths automatically—eliminating manual file opening mistakes!
+- The cutter software queries the local network server, retrieves job docket \`JOB-8942.ACM\`, and loads the exact cutting tool paths automatically—eliminating manual file opening mistakes!
         `
       }
     ]
@@ -525,65 +525,65 @@ When paper or plastic boards pass through UV curing lamps, heat causes non-linea
   },
   {
     id: 'm6',
-    title: 'Module 6: Shop Floor SOPs, Work OS & Operations',
+    title: 'Module 6: Shop Floor SOPs & Operations',
     category: 'Shop Floor & SOPs',
     iconName: 'ClipboardCheck',
-    shortDesc: 'Master Monday.com work OS tracking, mandatory kitting protocols, standing ergonomics, and safety hazard controls.',
+    shortDesc: 'Master production MIS tracking, workflow optimization, material handling, and safety hazard controls.',
     estimatedHours: '3.0 Hours',
     difficulty: 'Intermediate',
     lessons: [
       {
         id: 'm6-l1',
-        title: 'Lesson 6.1: Work OS Tracking, Schedule Shifts & Monday.com Dockets',
+        title: 'Lesson 6.1: Job Tracking, Schedule Shifts & Digital Dockets',
         duration: '45 mins',
         summary: 'Understand digital job dockets, real-time schedule adjustments, delivery priorities, and job tracking.',
         keyTakeaways: [
           'Production schedules constantly shift based on client rush orders and substrate delivery changes.',
-          'Operators must review the Monday.com Production Dashboard at the beginning and middle of every shift.',
+          'Operators must review the Production MIS (Management Information System) or job board regularly.',
           'Job dockets contain critical specs: media substrate type, quantity, print quality pass count, finish cut paths, and pallet packing instructions.',
-          'Always log completed quantity and waste counts into the Work OS immediately upon finishing a job run.'
+          'Always log completed quantity and waste counts into the tracking system immediately upon finishing a job run.'
         ],
         content: `
-## 1. Digital Work OS & Job Docket Anatomy
-Modern print shops manage workflow using cloud-based Work OS platforms (e.g., **Monday.com**). Operators interact with digital dockets containing all job specifications.
+## 1. Digital Job Dockets
+Modern print shops manage workflow using production MIS platforms or digital job boards. Operators interact with digital dockets containing all job specifications.
 
 ---
 
 ## 2. Managing Dynamic Schedule Changes
 Delivery dates and project priorities change dynamically throughout the shift.
 
-- **Rule**: If a high-priority Rush Order appears on Monday.com while a long standard job is printing:
+- **Standard Practice**: If a high-priority Rush Order appears on the schedule while a standard job is printing:
   1. Complete the current active board/sheet pass.
   2. Pause the press queue safely without shutting down UV lamps.
   3. Load the priority substrate, select the rush RIP file, and execute the rush run.
-  4. Log the schedule change in Monday.com and resume the standard queue.
+  4. Log the schedule change in the MIS and resume the standard queue.
         `
       },
       {
         id: 'm6-l2',
-        title: 'Lesson 6.2: Mandatory Kitting SOP, Standing Ergonomics & Shop Floor Safety',
+        title: 'Lesson 6.2: Workflow Optimization, Ergonomics & Shop Floor Safety',
         duration: '50 mins',
-        summary: 'Master zero-idle kitting protocols, pallet staging rules, standing ergonomics, and shop floor PPE standards.',
+        summary: 'Master workflow optimization during downtime, material handling, ergonomics, and shop floor PPE standards.',
         keyTakeaways: [
-          'Mandatory Kitting SOP: During any machine downtime or maintenance hold, operators MUST kit display accessories.',
-          'Pallet Staging Rule: Printed material MUST ALWAYS be stacked on pallets—NEVER on tables—for easy pallet jack/forklift transport.',
-          'Standing Ergonomics: Shift work involves prolonged standing; shift weight regularly and maintain neutral posture.',
-          'PPE Mandates: CSA-approved steel-toe boots, UV safety glasses, hearing protection, and chemical gloves are mandatory.'
+          'Workflow Optimization: Utilize machine downtime for prep work, maintenance, or reviewing upcoming job specifications.',
+          'Material Handling: Stack printed material on pallets for efficient transport and to prevent damage or trip hazards.',
+          'Ergonomics: Shift work involves prolonged standing; shift weight regularly, use anti-fatigue mats, and maintain neutral posture.',
+          'PPE Standards: CSA-approved steel-toe boots, UV safety glasses, hearing protection, and chemical gloves are standard.'
         ],
         content: `
-## 1. Mandatory Kitting Protocol During Idle Periods
+## 1. Workflow Optimization During Downtime
 
 > [!IMPORTANT]
-> **Zero Idle Time Rule**:
-> If a press or CNC cutter is waiting for maintenance, ink warm-up, or substrate delivery:
-> 1. **Notify Team Lead**: Report machine status immediately.
-> 2. **Initiate Kitting**: Move to the kitting bench and assemble display accessory kits (bagging plastic hooks, attaching double-sided foam tape, folding shipping cartons).
-> 3. **Rule**: *"There is NO time spent sitting or doing nothing on the shop floor."*
+> **Maximizing Productivity**:
+> If a press or CNC cutter is waiting for maintenance, ink warm-up, or substrate delivery, utilize the time efficiently:
+> 1. **Prepare Upcoming Jobs**: Review the docket for the next job, locate the required substrates, and stage them near the machine.
+> 2. **Routine Maintenance**: Perform general housekeeping, empty waste bins, or clean the workstation.
+> 3. **Assist Finishing**: Help the finishing department with assembly or packing if your machine is down for an extended period.
 
 ---
 
-## 2. Material Staging & Substrate Housekeeping Rules
-1. **Pallets Only Rule**: Printed boards, cut components, and raw substrates MUST be stacked neatly on wooden or plastic pallets. Stacking material directly on tables or floors restricts forklift access and creates safety trip hazards.
+## 2. Material Staging & Housekeeping
+1. **Material Handling**: Printed boards, cut components, and raw substrates should be stacked neatly on wooden or plastic pallets. Avoiding stacking on tables or floors ensures forklift access and minimizes safety trip hazards.
 2. **Floor Sweeping & Shaving Removal**: CNC routers produce fine plastic and wood shavings. Operators must vacuum router beds and sweep floor areas daily to prevent dust accumulation near UV press air intake filters.
 3. **Ergonomic Best Practices**:
    - Wear high-cushion anti-fatigue insoles inside safety boots.
@@ -598,7 +598,7 @@ Delivery dates and project priorities change dynamically throughout the shift.
     title: 'Module 7: Interactive Workstations & Day-1 Reference',
     category: 'Practical Tools',
     iconName: 'Tool',
-    shortDesc: 'Access interactive Prepress Dieline Inspector, RIP Console, Equipment Simulator, Substrate Cheat Sheet, and Emergency Troubleshooting Hub.',
+    shortDesc: 'Access interactive Prepress Dieline Inspector, RIP Console, Equipment Simulator, Substrate Cheat Sheet, and Troubleshooting Matrix.',
     estimatedHours: '3.0 Hours',
     difficulty: 'Mastery',
     lessons: [
@@ -623,32 +623,32 @@ Navigate to the **Equipment Simulators Tab** in the top menu bar to launch the 3
       },
       {
         id: 'm7-l2',
-        title: 'Lesson 7.2: Day-1 Survival Checklist & Emergency Troubleshooting Hub',
+        title: 'Lesson 7.2: Standard Operating Procedures (SOPs) & Troubleshooting Matrix',
         duration: '40 mins',
-        summary: 'Comprehensive quick-reference cheat sheet for your first day on the job.',
+        summary: 'Comprehensive quick-reference checklists for standard daily operations.',
         keyTakeaways: [
-          'Follow the Day-1 Survival Checklist to ensure smooth integration with shop floor team leads.',
-          'Keep the Emergency Troubleshooting Matrix bookmarked on your phone or mobile browser for instant answers.',
+          'Follow the Daily Operations Checklists to ensure consistent quality and safety.',
+          'Refer to the Troubleshooting Matrix for immediate solutions to common print and finishing defects.',
           'Always verify safety stop buttons and emergency power cut-offs before operating unfamiliar machinery.'
         ],
         content: `
-## Day-1 Shift Survival Checklist
+## Daily Operations Checklists
 
 ### Morning Start-Up Sequence
 - [ ] Put on mandatory PPE: Steel-toe safety boots, UV safety glasses, hearing protection.
-- [ ] Clock in and review the Monday.com Production Dashboard for assigned machine.
-- [ ] Inspect machine area: Ensure floors are clean, free of clutter, and no chairs are in workstations.
-- [ ] Perform start-of-day 30-minute press purge SOP and verify 100% nozzle jetting.
+- [ ] Clock in and review the daily production schedule for your assigned machine.
+- [ ] Inspect machine area: Ensure floors are clean and free of clutter.
+- [ ] Perform start-of-day press purge and verify 100% nozzle jetting.
 
-### Shift Operations Checklist
+### Active Shift Checklist
 - [ ] Verify substrate specs against digital docket (stock brand, thickness, grain/flute direction).
 - [ ] Measure substrate dyne level ($\\ge 44 \\text{ dynes/cm}$) if printing non-porous plastics.
-- [ ] Check OVERS inventory before starting new print runs.
-- [ ] Ensure all printed output is stacked neatly on pallets—never on tables.
-- [ ] Stagger lunch/rest breaks with partner operator so presses run continuously.
+- [ ] Check existing overage inventory before starting new print runs.
+- [ ] Ensure all printed output is stacked neatly on pallets.
+- [ ] Coordinate break times with team members to maintain continuous production when possible.
 
 ### End-of-Shift Departure
-- [ ] Complete active print queue pass and log finished quantities in Monday.com.
+- [ ] Complete active print queue pass and log finished quantities in the production system.
 - [ ] Perform end-of-day carriage wipe and secure printheads in capping station.
 - [ ] Vacuum router shavings and sweep workstation floor completely clean.
 - [ ] Hand over active docket notes to incoming shift operator.

@@ -195,35 +195,35 @@ export const QUIZZES: Record<string, ModuleQuiz> = {
     questions: [
       {
         id: 'm6-q1',
-        question: 'What is the Mandatory Kitting SOP when a press is undergoing maintenance or waiting for substrate delivery?',
+        question: 'What is the best practice for workflow optimization when a press is undergoing maintenance or waiting for substrate delivery?',
         options: [
           'Operators may sit in break rooms until machines restart.',
-          'Operators MUST move to kitting benches to assemble display accessories (hooks, tape, cartons); zero idle time on shop floor.',
+          'Operators should utilize the time to prepare for upcoming jobs, perform routine maintenance, or assist other departments.',
           'Operators should shut down all UV lamp power breakers.',
           'Operators must clean office break rooms.'
         ],
         correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'The Zero-Idle Kitting SOP mandates that machine downtime is utilized to package display hardware and assemble kits.'
+        explanation: 'Effective workflow optimization means utilizing machine downtime productively to prepare for future tasks or maintain the workspace.'
       }
     ]
   },
   m7: {
     moduleId: 'm7',
-    moduleTitle: 'Module 7 Assessment: Day-1 Mastery Verification',
+    moduleTitle: 'Module 7 Assessment: Practical Operations',
     questions: [
       {
         id: 'm7-q1',
-        question: 'What is the correct protocol when stacking printed boards off a wide-format press?',
+        question: 'What is the standard procedure for material handling when stacking printed boards off a wide-format press?',
         options: [
           'Stack boards on workbenches or directly on floor mats.',
-          'All printed output MUST be stacked neatly on wooden or plastic pallets for forklift and pallet jack transport.',
+          'All printed output should be stacked neatly on wooden or plastic pallets to enable safe transport and prevent damage.',
           'Lean boards vertically against press side covers.',
           'Store boards inside UV curing enclosures.'
         ],
         correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'The Pallet-Only Staging Rule ensures material mobility via forklifts/pallet jacks and prevents trip hazards.'
+        explanation: 'Stacking material on pallets is a standard safety and efficiency practice that allows for easy forklift access and minimizes trip hazards.'
       }
     ]
   }

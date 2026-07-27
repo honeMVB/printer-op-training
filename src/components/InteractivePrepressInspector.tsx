@@ -55,7 +55,7 @@ export default function InteractivePrepressInspector() {
         {/* Left: Vector Canvas Preview */}
         <div className="bg-slate-950 border border-slate-800 rounded-2xl p-6 relative overflow-hidden font-mono flex flex-col justify-between min-h-[300px]">
           <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-2">
-            <span>CANVAS PREVIEW: WWD-8942_Header.ai</span>
+            <span>CANVAS PREVIEW: JOB-8942_Header.ai</span>
             <span className="text-cyan-400">ARTBOARD: 48" x 24"</span>
           </div>
 
