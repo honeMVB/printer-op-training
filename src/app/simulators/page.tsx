@@ -4,6 +4,7 @@ import ProtectedRoute from '@/components/ProtectedRoute';
 import InteractivePrepressInspector from '@/components/InteractivePrepressInspector';
 import InteractiveRipConsole from '@/components/InteractiveRipConsole';
 import EquipmentSimulator from '@/components/EquipmentSimulator';
+import EngineeringCalculators from '@/components/EngineeringCalculators';
 import { Sliders, Cpu, Wrench, ShieldCheck } from 'lucide-react';
 
 export default function SimulatorsPage() {
@@ -46,6 +47,14 @@ export default function SimulatorsPage() {
             <Wrench className="w-4 h-4" /> Workstation 3: Press Purge & CNC Router Operations Panel
           </div>
           <EquipmentSimulator />
+        </section>
+
+        {/* Workstation 4: Engineering Calculators */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-2 text-sm font-bold text-yellow-400 uppercase tracking-wider">
+            <Wrench className="w-4 h-4" /> Workstation 4: Practical Engineering Calculators
+          </div>
+          <EngineeringCalculators />
         </section>
 
       </div>

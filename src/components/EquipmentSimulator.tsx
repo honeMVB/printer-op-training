@@ -284,8 +284,11 @@ export default function EquipmentSimulator() {
           {/* Interactive Router Feed & Speed Chip Load Tuner */}
           <div className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-4">
             <h5 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-              <Gauge className="w-4 h-4 text-blue-400" /> MultiCam Router Feed & Speed Tuner (0.25" Acrylic)
+              <Gauge className="w-4 h-4 text-blue-400" /> Troubleshooting Scenario: Acrylic Edge Melting
             </h5>
+            <p className="text-xs text-slate-300">
+              <span className="font-bold text-amber-400">SCENARIO:</span> You are routing 0.25" Cast Acrylic. The cut edges are melting and plastic chips are welding to the bit. The current Chip Load is too low (causing extreme friction). Adjust the Spindle Speed (RPM) and Feed Rate (IPM) to achieve the ideal Chip Load target of ~0.008".
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
               <div>

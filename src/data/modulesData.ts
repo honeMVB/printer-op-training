@@ -112,14 +112,26 @@ Delta E quantifies the Euclidean distance between a target proof color ($L_1^*, 
 
 ---
 
-## 2. Step-by-Step RIP Linearization SOP
-**Linearization** compensates for dot gain (ink spreading outward on media) by mapping requested input percentages to true measured output densities.
+## 2. What is RIP Linearization? (The "Why" and "How")
+**Linearization** is the absolute foundation of color management. If you don't linearize a press, no color profile will ever work.
 
-### Operator Step-by-Step Procedure (Onyx / Agfa Asanti / Caldera):
-1. **Load Media**: Mount target substrate (e.g. 3mm Expanded PVC) onto the press.
-2. **Print Linearization Chart**: In RIP Media Manager, select **Print Linearization Target**. The press prints single-channel tint strips ($0\\%, 10\\%, 20\\%, \\dots, 100\\%$) for Cyan, Magenta, Yellow, and Black.
-3. **Scan Target**: Place the spectrophotometer (X-Rite i1Pro) on the calibration track and scan each color strip.
-4. **Build Curve**: The RIP calculates dot gain density shifts and generates a inverse Look-Up Table (LUT) curve. For example, if $50\\%$ Cyan input produces $68\\%$ density, the LUT pulls input back to $38\\%$ so the printed result measures true $50\\%$.
+### The Problem: Dot Gain
+When a printer sprays a dot of ink onto a plastic board, the ink spreads out slightly before the UV lamp cures it. This spreading is called **Dot Gain**. 
+If you tell the printer to print a **50% Cyan** patch, the ink spreads out. When you measure it with a spectrophotometer, it might actually measure as **68% Cyan** because the dots grew larger than intended. If 50% prints as 68%, all your mid-tones will look way too dark and muddy.
+
+### The Solution: The Linearization LUT (Look-Up Table)
+Linearization fixes this by doing the math backwards. 
+1. **The Goal**: We want 50% input to actually equal 50% output on the board.
+2. **The Test**: We print a test chart of gradients (0% to 100%).
+3. **The Scan**: We scan it with a spectrophotometer. The software realizes that requesting 50% resulted in 68%.
+4. **The Fix**: The RIP creates a **Look-Up Table (LUT)** curve. It calculates: *"To get a true 50% output, I need to only ask the printhead to spray 38% ink."*
+5. **The Result**: Now, when the design file asks for 50%, the RIP intercepts it, sends 38% to the heads, the ink spreads out due to dot gain, and the final measured result on the board is exactly the 50% we wanted. This creates a perfectly **linear** response from 0 to 100.
+
+### The Conceptual Workflow
+1. **Load the specific media** you are profiling (e.g., Sintra). Linearization changes based on how much ink spreads on *that specific material*.
+2. **Print the Linearization Target** directly from the RIP.
+3. **Scan the patches** using an X-Rite spectrophotometer.
+4. **Save the LUT** into the media profile.
 
 ---
 
@@ -284,12 +296,18 @@ In display manufacturing, nesting multiple components on a standard-sized board 
           'All text fonts MUST be converted to vector outlines (Ctrl+Shift+O) before sending files to pre-press RIPs.'
         ],
         content: `
-## 1. Multi-Layer Illustrator File Structure
-Commercial print pre-press requires isolating artwork, vector cut lines, registration marks, and notes into separate layers inside Adobe Illustrator.
+## 1. The Conceptual Prepress-to-Production Workflow
+Before diving into specific buttons, you must understand the "Idea" of the digital print workflow. Data moves through 4 distinct stages:
+
+1. **Prepress (Adobe Illustrator/CorelDRAW)**: The designer's artwork is prepared. We add Bleeds (extra background color so white edges don't show when cut) and define exactly where the CNC blade will travel using special colored vector lines (Dielines).
+2. **RIP Software (Onyx / Asanti)**: The "Raster Image Processor". It takes the vector Illustrator file and translates it into billions of tiny CMYK ink droplet coordinates that the physical printer understands. It also applies the Linearization curves and Color Profiles we discussed in Module 1.
+3. **Printing (Mimaki / TAURO)**: The physical press lays down the ink based on the RIP's instructions.
+4. **Digital Finishing (Kongsberg / MultiCam)**: The CNC cutter reads a barcode, opens the exact Dieline path created in step 1, and cuts the board to shape.
 
 ---
 
 ## 2. Standard Dieline Spot Color Naming Matrix
+To tell the RIP and the CNC cutter what is a graphic and what is a cut path, we use specific naming conventions in Illustrator.
 
 | Operation | Stroke Swatch Name | Color Type | Color Representation | Stroke Weight | Required Attribute |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -299,20 +317,16 @@ Commercial print pre-press requires isolating artwork, vector cut lines, registr
 | **ACM V-Groove Fold** | \`VGroove\` | Spot Color | 100% Yellow | 0.50 pt | **Overprint Stroke ENABLED** |
 | **i-cut Reg Marks** | \`i-cut\` | Spot Color | 100% Black | Solid 6mm Circle | Standard Fill |
 
-### How to Set Overprint Stroke in Illustrator:
-1. Select the vector stroke path.
-2. Open Attributes Panel: \`Window > Attributes\`.
-3. Check the box for **Overprint Stroke**.
-
-> [!IMPORTANT]
-> **Why Overprint Stroke is Non-Negotiable**: If Overprint Stroke is UNCHECKED, the RIP software treats the cut line as a graphic path and erases (knocks out) a white line in the background image underneath the stroke. When the CNC knife cuts the board, a thin white unprinted margin will show along the edge of the finished display.
+### The "Idea" Behind Overprint Stroke:
+By default, if you draw a magenta line over a photograph in Illustrator, the software "knocks out" (erases) the photograph underneath the line so the magenta ink doesn't mix with the photo ink.
+But our \`CutContour\` line isn't real ink! It's an invisible path for a knife. If you don't check the **"Overprint Stroke"** box, the RIP will actually erase a white line in your photograph where the cut path is. When the knife cuts it, you will see an ugly white unprinted margin on the edge of your finished display.
 
 ---
 
 ## 3. Bleed & Safe Margin Setup
-- **Thin Media (<1mm)**: Set exterior graphic bleed to **$0.125"$ ($3.175\\text{mm}$)** beyond the \`CutContour\` line using \`Object > Path > Offset Path\`.
+- **Thin Media (<1mm)**: Set exterior graphic bleed to **$0.125"$ ($3.175\\text{mm}$)** beyond the \`CutContour\` line.
 - **Thick Rigid Board (3mm - 16mm)**: Set exterior graphic bleed to **$0.25"$ ($6.35\\text{mm}$)**.
-- **Safe Margin**: Keep critical logos, text, and barcodes at least **$0.25"$ ($6.35\\text{mm}$)** inside the \`CutContour\` path.
+- **Safe Margin**: Keep critical logos and text at least **$0.25"$ ($6.35\\text{mm}$)** inside the cut path so they don't get accidentally sliced off during shifting.
         `
       },
       {
