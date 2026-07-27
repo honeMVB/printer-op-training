@@ -1,26 +1,53 @@
 'use client';
 
 import ProtectedRoute from '@/components/ProtectedRoute';
+import InteractivePrepressInspector from '@/components/InteractivePrepressInspector';
+import InteractiveRipConsole from '@/components/InteractiveRipConsole';
 import EquipmentSimulator from '@/components/EquipmentSimulator';
-import { Sliders, Zap, ShieldCheck } from 'lucide-react';
+import { Sliders, Cpu, Wrench, ShieldCheck } from 'lucide-react';
 
 export default function SimulatorsPage() {
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-slate-950 text-white pb-20 pt-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider mb-3">
-            <Zap className="w-4 h-4" /> Hands-On Virtual Equipment Practice
+      <div className="min-h-screen bg-slate-950 text-white pb-20 pt-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+        
+        {/* Page Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+            <Sliders className="w-4 h-4" /> Interactive Equipment & Software Workstations
           </div>
-          <h1 className="text-3xl font-black text-white tracking-tight mb-2">
-            Interactive Machinery Simulators
+          <h1 className="text-3xl sm:text-4xl font-black tracking-tight">
+            Virtual Production & Software Simulators
           </h1>
-          <p className="text-slate-400 text-sm max-w-2xl">
-            Simulate start-of-day UV press purging, nozzle diagnostic grid patterns, and CNC flatbed optical camera registration alignment before stepping onto the physical shop floor.
+          <p className="text-slate-400 text-sm leading-relaxed">
+            Practice pre-press dieline auditing, RIP linearization curves, total area coverage ink limiting, press nozzle diagnostics, and CNC chip load tuning in realistic interactive software environments.
           </p>
         </div>
 
-        <EquipmentSimulator />
+        {/* Workstation 1: Pre-Press Illustrator Dieline Inspector */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-2 text-sm font-bold text-cyan-400 uppercase tracking-wider">
+            <Cpu className="w-4 h-4" /> Workstation 1: Pre-Press Vector Dieline Auditor
+          </div>
+          <InteractivePrepressInspector />
+        </section>
+
+        {/* Workstation 2: RIP Software Console */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-2 text-sm font-bold text-blue-400 uppercase tracking-wider">
+            <Sliders className="w-4 h-4" /> Workstation 2: Agfa Asanti / Onyx RIP Spooling Station
+          </div>
+          <InteractiveRipConsole />
+        </section>
+
+        {/* Workstation 3: Industrial Press & CNC Finishing Panel */}
+        <section className="space-y-4">
+          <div className="flex items-center gap-2 text-sm font-bold text-emerald-400 uppercase tracking-wider">
+            <Wrench className="w-4 h-4" /> Workstation 3: Press Purge & CNC Router Operations Panel
+          </div>
+          <EquipmentSimulator />
+        </section>
+
       </div>
     </ProtectedRoute>
   );

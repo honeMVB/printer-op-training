@@ -1,225 +1,229 @@
-export interface Question {
+export interface QuizQuestion {
   id: string;
   question: string;
   options: string[];
+  correctAnswer: number;
   correctIndex: number;
   explanation: string;
 }
 
-export interface QuizData {
+export interface ModuleQuiz {
   moduleId: string;
   moduleTitle: string;
-  questions: Question[];
+  questions: QuizQuestion[];
 }
 
-export const QUIZZES: Record<string, QuizData> = {
+export type QuizData = ModuleQuiz;
+
+export const QUIZZES: Record<string, ModuleQuiz> = {
   m1: {
     moduleId: 'm1',
-    moduleTitle: 'Module 1: Printing Foundations & Physics',
+    moduleTitle: 'Module 1 Assessment: Color Management & RIP Calibration',
     questions: [
       {
-        id: 'q1-1',
-        question: 'How do UV-curable inks dry when jetted onto a substrate surface?',
+        id: 'm1-q1',
+        question: 'What does a Delta E 2000 (ΔE00) value of 1.5 indicate when evaluating a printed corporate logo against a proof?',
         options: [
-          'Through water evaporation over 24 hours',
-          'Through instant photo-polymerization when struck by UV LED light',
-          'By chemical etching into the paper liner',
-          'By high-temperature thermal baking at 200°C'
+          'Critical failure; immediate color rejection required.',
+          'Pass: Very slight difference within standard corporate brand matching tolerance (ΔE < 2.0).',
+          'Imperceptible to the human eye under all conditions.',
+          'Severe color shift due to missing black ink.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'UV inks contain monomers, oligomers, and photo-initiators that undergo rapid cross-linking polymerization when exposed to 365–395nm UV light.'
+        explanation: 'ΔE < 2.0 is the standard commercial brand matching target for corporate logos under ISO 12647 standards.'
       },
       {
-        id: 'q1-2',
-        question: 'What does a Delta E (ΔE00) value under 1.0 represent in commercial color management?',
+        id: 'm1-q2',
+        question: 'What happens if you set Total Area Coverage (TAC) above 320% when printing on non-porous Sintra PVC boards?',
         options: [
-          'An obvious unacceptable color shift',
-          'A visible shift that requires immediate re-printing',
-          'A color difference imperceptible to the human eye meeting ISO master standards',
-          'A 50% loss in ink density'
+          'Print speed increases by 50%.',
+          'UV lamps cannot fully cure bottom ink layers, causing wet ink pooling, odor, and flaking during CNC routing.',
+          'Print resolution automatically doubles from 600 DPI to 1200 DPI.',
+          'The press carriage lowers clearance by 1.0mm.'
         ],
-        correctIndex: 2,
-        explanation: 'Delta E < 1.0 indicates a virtually perfect color match that cannot be distinguished by the human eye.'
+        correctAnswer: 1,
+        correctIndex: 1,
+        explanation: 'Exceeding TAC limits lays down excessive ink depth that blocks UV light penetration, preventing bottom ink layers from polymerizing.'
       },
       {
-        id: 'q1-3',
-        question: 'What is the primary trade-off when increasing press pass count (e.g., from 4-pass to 8-pass)?',
+        id: 'm1-q3',
+        question: 'What is the primary function of RIP Linearization?',
         options: [
-          'Higher speed but increased banding',
-          'Higher print quality and color density, but reduced printing speed',
-          'Lower ink adhesion on plastic boards',
-          'Automatic conversion from CMYK to RGB'
+          'To cut outer bleed margins off the substrate.',
+          'To map input percentages (0-100%) to true measured output density and compensate for dot gain.',
+          'To automatically convert vector paths to raster JPEG images.',
+          'To rotate printed boards by 90 degrees.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'Higher pass counts lay down more overlapping ink passes to eliminate banding and increase color vibrancy, but cut print output speed in half.'
+        explanation: 'Linearization creates an inverse LUT curve so that a 50% input percentage produces true 50% optical density on media.'
       }
     ]
   },
   m2: {
     moduleId: 'm2',
-    moduleTitle: 'Module 2: Substrate Science & Inventory',
+    moduleTitle: 'Module 2 Assessment: Substrates & Surface Chemistry',
     questions: [
       {
-        id: 'q2-1',
-        question: 'What is the minimum Dyne surface energy level required for UV ink to adhere to plastic boards without flaking?',
+        id: 'm2-q1',
+        question: 'When performing a Dyne test on a raw polypropylene sheet, the Dyne 44 pen liquid breaks into isolated droplets within 1 second. What does this mean?',
         options: [
-          '15 dynes/cm',
-          '28 dynes/cm',
-          '44 dynes/cm or higher',
-          '100 dynes/cm'
+          'Pass: Surface energy is >= 44 dynes/cm; proceed to printing.',
+          'Fail: Surface energy is too low (<44 dynes/cm). Apply adhesion primer wipe or flame treatment before printing.',
+          'The substrate is too thick for flatbed printing.',
+          'The board requires higher vacuum hold-down.'
         ],
-        correctIndex: 2,
-        explanation: 'UV ink requires a surface energy of at least 44 dynes/cm for adequate wetting and chemical adhesion.'
+        correctAnswer: 1,
+        correctIndex: 1,
+        explanation: 'If Dyne liquid beads up, surface energy is below 44 dynes/cm. Printing directly will cause ink flaking when cut.'
       },
       {
-        id: 'q2-2',
-        question: 'According to the OVERS Depletion Mandate, what must an operator do if 50 over-printed headers exist in stock for a 500-unit repeat order?',
+        id: 'm2-q2',
+        question: 'Why must vertical structural support panels on corrugated floor displays have flutes running vertically?',
         options: [
-          'Print 500 new headers and throw away the old ones',
-          'Record and deduct the 50 stock units, printing only 450 new headers',
-          'Print 550 headers to add to the extra stock',
-          "Stop production and return the material to the vendor's warehouse"
+          'It improves printing speed on Mimaki roll printers.',
+          'Vertical flutes act as structural columns. Running flutes horizontally reduces load capacity by over 70%, causing display collapse.',
+          'It reduces ink consumption by 20%.',
+          'It prevents static electricity build-up.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'Operators must check OVERS inventory and deduct existing components from incoming print dockets to prevent material waste.'
+        explanation: 'Corrugated board strength is directional along internal flute columns. Vertical flute alignment is mandatory for weight-bearing displays.'
       }
     ]
   },
   m3: {
     moduleId: 'm3',
-    moduleTitle: 'Module 3: Pre-Press & Structural Design',
+    moduleTitle: 'Module 3 Assessment: Pre-Press Vector & i-cut Engineering',
     questions: [
       {
-        id: 'q3-1',
-        question: 'In Adobe Illustrator prepress, how should cut contour dielines be defined?',
+        id: 'm3-q1',
+        question: 'Why MUST vector cut lines (e.g. CutContour) have Overprint Stroke ENABLED in Adobe Illustrator?',
         options: [
-          'As RGB Process Red lines set to 10pt stroke',
-          'As 100% Spot Colors with Overprint Stroke enabled and exact names like CutContour',
-          'As filled black squares',
-          'As hidden invisible guide lines'
+          'To double the thickness of the vector line.',
+          'To prevent the RIP software from knocking out (erasing) a white line in the background artwork under the path.',
+          'To change the ink color to Cyan.',
+          'To speed up cutter camera scanning.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'Cut contour vector paths must be Spot Colors (e.g. CutContour) set to Overprint Stroke so RIP software isolates them for the cutter table.'
+        explanation: 'If Overprint Stroke is off, RIPs erase background graphics under the stroke, creating white border artifacts on cut edges.'
       },
       {
-        id: 'q3-2',
-        question: 'Why are i-cut registration target dots (black 6mm circles) printed around the graphic border?',
+        id: 'm3-q2',
+        question: 'What is the function of Esko i-cut 6mm solid black registration dots placed on sheet perimeters?',
         options: [
-          'To decorate the board edges',
-          'To allow the cutter optical camera to scan targets and compensate for material distortion or stretching',
-          'To test ink drying speed',
-          'To indicate where forklift prongs should lift the pallet'
+          'They indicate ink fill levels to press operators.',
+          'They guide the cutter optical camera to calculate 3D distortion mesh warping and align tool paths to distorted prints.',
+          'They absorb excess UV lamp heat.',
+          'They trigger automatic sheet feeding.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'The cutter optical camera scans the registration dots to calculate sheet rotation, skew, and 3D warp compensation.'
+        explanation: 'i-cut camera dots allow the cutter vision system to measure physical print distortion and warp cut vectors to match.'
       }
     ]
   },
   m4: {
     moduleId: 'm4',
-    moduleTitle: 'Module 4: Industrial Wide-Format Press Operations',
+    moduleTitle: 'Module 4 Assessment: Industrial Press Operations',
     questions: [
       {
-        id: 'q4-1',
-        question: 'What is the maximum time allowed for the start-of-day press purge routine?',
+        id: 'm4-q1',
+        question: 'What is the correct procedure for wiping printhead faceplates during start-of-day maintenance?',
         options: [
-          '10 minutes',
-          '30 minutes maximum',
-          '2 hours',
-          'No time limit'
+          'Scrub back and forth vigorously with dry paper towels.',
+          'Wipe in ONE forward direction using a lint-free poly-wipe saturated with flush solution; never scrub back and forth.',
+          'Use compressed air at 90 PSI directly into nozzles.',
+          'Spray glass cleaner onto the carriage.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'Start-of-day purge, faceplate wipe, and nozzle check must be completed within 30 minutes to maximize production output.'
+        explanation: 'Scrubbing back and forth pushes dried ink and dust into delicate nozzle orifices. Always wipe forward smoothly with solvent poly-wipes.'
       },
       {
-        id: 'q4-2',
-        question: 'How do operators maintain zero-downtime continuous printing during lunch and rest breaks?',
+        id: 'm4-q2',
+        question: 'What is the risk of setting gantry carriage clearance below 1.5mm above bowed substrate?',
         options: [
-          'By turning off the press and clearing the queue',
-          'By staggering rest breaks so partner operators cover and run active machinery',
-          'By speeding up the press to 200% draft mode',
-          'By leaving the press unattended without supervision'
+          'Ink dries too fast under UV lamps.',
+          'Head Strike: The moving carriage strikes board edges, causing catastrophic, multi-thousand-dollar printhead damage.',
+          'Static electricity increases by 50%.',
+          'Vacuum bed pressure drops to zero.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'Operators alternate break times so partner operators cover active equipment, preventing ink drying in nozzles and eliminating downtime.'
+        explanation: 'Head strikes occur when uneven media contacts printheads, crushing nozzles and tearing faceplates.'
       }
     ]
   },
   m5: {
     moduleId: 'm5',
-    moduleTitle: 'Module 5: CNC Digital Finishing & Heavy Routing',
+    moduleTitle: 'Module 5 Assessment: CNC Finishing & Routing Physics',
     questions: [
       {
-        id: 'q5-1',
-        question: 'Which router bit type is mandatory for routing Acrylic to evacuate chips and prevent plastic melting?',
+        id: 'm5-q1',
+        question: 'What happens if the CNC router Chip Load is too small (e.g., Spindle RPM too high and Feed Rate IPM too slow) when cutting Acrylic?',
         options: [
-          'Standard drag knife blade',
-          'Single-flute Up-cut O-flute spiral bit',
-          'Four-flute straight drill bit',
-          'Diamond glass scoring wheel'
+          'The router bit cuts twice as fast.',
+          'The bit rubs against plastic, generating extreme friction heat that melts the plastic and welds it around the bit (chip welding).',
+          'The vacuum bed loses static pressure.',
+          'The cut edge becomes completely polished instantly.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'Single-flute O-flute bits feature a wide polished flute valley designed specifically to eject plastic chips before heat causes acrylic re-melting.'
+        explanation: 'Low chip load means the bit is rubbing instead of carving chips. Friction heat rapidly melts acrylic, ruining the bit and workpiece.'
       },
       {
-        id: 'q5-2',
-        question: 'If a CNC router operates at 18,000 RPM with a single-flute bit and a target Chip Load of 0.008", what is the required Feed Rate (IPM)?',
+        id: 'm5-q2',
+        question: 'Why are Single-Flute Polished O-Flute bits specified for CNC routing Acrylic?',
         options: [
-          '50 IPM',
-          '144 IPM (18,000 × 0.008)',
-          '500 IPM',
-          '1,000 IPM'
+          'They are cheaper than multi-flute bits.',
+          'The single wide open flute valley rapidly evacuates soft plastic chips before heat can build up in the cut channel.',
+          'They allow oscillating knife cutting.',
+          'They do not require vacuum hold-down.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'Feed Rate = Spindle RPM × Chip Load × Flutes = 18,000 × 0.008 × 1 = 144 IPM.'
+        explanation: 'Single-flute O-flute geometries feature a large polished gullet designed specifically for rapid chip ejection in heat-sensitive plastics.'
       }
     ]
   },
   m6: {
     moduleId: 'm6',
-    moduleTitle: 'Module 6: Shop Floor Management & SOPs',
+    moduleTitle: 'Module 6 Assessment: Operations & SOPs',
     questions: [
       {
-        id: 'q6-1',
-        question: 'What is an operator required to do under the Mandatory Kitting SOP if a machine becomes idle during maintenance?',
+        id: 'm6-q1',
+        question: 'What is the Mandatory Kitting SOP when a press is undergoing maintenance or waiting for substrate delivery?',
         options: [
-          'Sit at the workstation and wait',
-          'Immediately notify the Team Lead and begin kitting display accessories or assembly kits',
-          'Leave the shop floor for an unscheduled break',
-          'Shut down all shop power'
+          'Operators may sit in break rooms until machines restart.',
+          'Operators MUST move to kitting benches to assemble display accessories (hooks, tape, cartons); zero idle time on shop floor.',
+          'Operators should shut down all UV lamp power breakers.',
+          'Operators must clean office break rooms.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'Zero idle time policy dictates that operators must report equipment holds and kit display accessories immediately.'
-      },
-      {
-        id: 'q6-2',
-        question: 'Why must printed materials ALWAYS be stacked on pallets rather than tables?',
-        options: [
-          'Because tables are reserved for operator lunches',
-          'To ensure immediate mobility using forklift or pallet jacks and prevent floor obstruction',
-          'To protect tables from ink spills',
-          'Because pallets make graphics look larger'
-        ],
-        correctIndex: 1,
-        explanation: 'Pallet-only staging guarantees rapid logistics mobility across assembly, packaging, and shipping departments.'
+        explanation: 'The Zero-Idle Kitting SOP mandates that machine downtime is utilized to package display hardware and assemble kits.'
       }
     ]
   },
   m7: {
     moduleId: 'm7',
-    moduleTitle: 'Module 7: Day-1 Mastery Hub & Simulators',
+    moduleTitle: 'Module 7 Assessment: Day-1 Mastery Verification',
     questions: [
       {
-        id: 'q7-1',
-        question: 'What is the first step an operator should take upon arriving at their assigned press on Day 1?',
+        id: 'm7-q1',
+        question: 'What is the correct protocol when stacking printed boards off a wide-format press?',
         options: [
-          'Start printing without checking nozzles',
-          'Put on mandatory PPE, clock in, review Monday.com dashboard, and verify clean workspace',
-          'Change the printer RIP color profiles',
-          'Disassemble the printhead carriage'
+          'Stack boards on workbenches or directly on floor mats.',
+          'All printed output MUST be stacked neatly on wooden or plastic pallets for forklift and pallet jack transport.',
+          'Lean boards vertically against press side covers.',
+          'Store boards inside UV curing enclosures.'
         ],
+        correctAnswer: 1,
         correctIndex: 1,
-        explanation: 'Safety PPE, dashboard review, workspace check, and 30-min purge SOP form the core morning start-up sequence.'
+        explanation: 'The Pallet-Only Staging Rule ensures material mobility via forklifts/pallet jacks and prevents trip hazards.'
       }
     ]
   }
