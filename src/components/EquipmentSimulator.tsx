@@ -65,15 +65,15 @@ export default function EquipmentSimulator() {
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm max-w-5xl mx-auto">
+    <div className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm max-w-5xl mx-auto">
       {/* Simulator Switcher Tabs */}
-      <div className="flex border-b border-zinc-200 dark:border-zinc-800 pb-4">
+      <div className="flex border-b border-stone-200 dark:border-stone-800 pb-4">
         <button
           onClick={() => setActiveTab('press')}
           className={`flex items-center gap-2 px-6 py-3 rounded-md font-medium text-sm transition-colors ${
             activeTab === 'press'
-              ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50'
-              : 'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 dark:hover:text-zinc-200'
+              ? 'bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-stone-50'
+              : 'text-stone-500 hover:text-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 dark:hover:text-stone-200'
           }`}
         >
           <Droplets className="w-4 h-4" /> AGFA TAURO / UV Press Maintenance Panel
@@ -82,8 +82,8 @@ export default function EquipmentSimulator() {
           onClick={() => setActiveTab('cnc')}
           className={`flex items-center gap-2 px-6 py-3 rounded-md font-medium text-sm transition-colors ml-4 ${
             activeTab === 'cnc'
-              ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-50'
-              : 'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 dark:hover:text-zinc-200'
+              ? 'bg-stone-100 dark:bg-stone-800 text-stone-900 dark:text-stone-50'
+              : 'text-stone-500 hover:text-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 dark:hover:text-stone-200'
           }`}
         >
           <Crosshair className="w-4 h-4" /> Kongsberg & MultiCam CNC Operations Panel
@@ -95,61 +95,61 @@ export default function EquipmentSimulator() {
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">Industrial UV Press Operations & Diagnostic Console</h4>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Execute the 30-minute start-of-day purging SOP, diagnose nozzle test grids, and resolve nozzle jet deflections.</p>
+              <h4 className="text-2xl font-bold text-stone-900 dark:text-stone-50 tracking-tight">Industrial UV Press Operations & Diagnostic Console</h4>
+              <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">Execute the 30-minute start-of-day purging SOP, diagnose nozzle test grids, and resolve nozzle jet deflections.</p>
             </div>
             <button
               onClick={resetPress}
-              className="flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 transition-colors text-sm font-medium text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
+              className="flex items-center gap-2 px-4 py-2 rounded-md bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 transition-colors text-sm font-medium text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700"
             >
               <RefreshCw className="w-4 h-4" /> Reset Console
             </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className={`p-4 rounded-lg border transition-all ${powerOn ? 'bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600' : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'}`}>
-              <span className="text-[10px] uppercase font-semibold text-zinc-500 block mb-1">Step 1</span>
-              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">Sub-tank Warmup (45°C)</h5>
+            <div className={`p-4 rounded-lg border transition-all ${powerOn ? 'bg-stone-50 dark:bg-stone-800 border-stone-300 dark:border-stone-600' : 'bg-white dark:bg-stone-900 border-stone-200 dark:border-stone-800'}`}>
+              <span className="text-[10px] uppercase font-semibold text-stone-500 block mb-1">Step 1</span>
+              <h5 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-3">Sub-tank Warmup (45°C)</h5>
               <button
                 onClick={handleWarmup}
                 disabled={powerOn}
-                className="w-full py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 disabled:opacity-50 font-medium text-xs transition-colors"
+                className="w-full py-2 rounded-md bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 disabled:opacity-50 font-medium text-xs transition-colors"
               >
                 {powerOn ? 'Temp 45°C (Ready)' : 'Heat Sub-tanks'}
               </button>
             </div>
 
-            <div className={`p-4 rounded-lg border transition-all ${purged ? 'bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600' : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'}`}>
-              <span className="text-[10px] uppercase font-semibold text-zinc-500 block mb-1">Step 2</span>
-              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">3-Sec Positive Purge</h5>
+            <div className={`p-4 rounded-lg border transition-all ${purged ? 'bg-stone-50 dark:bg-stone-800 border-stone-300 dark:border-stone-600' : 'bg-white dark:bg-stone-900 border-stone-200 dark:border-stone-800'}`}>
+              <span className="text-[10px] uppercase font-semibold text-stone-500 block mb-1">Step 2</span>
+              <h5 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-3">3-Sec Positive Purge</h5>
               <button
                 onClick={handlePurge}
                 disabled={!powerOn || purged}
-                className="w-full py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 disabled:opacity-50 font-medium text-xs transition-colors"
+                className="w-full py-2 rounded-md bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 disabled:opacity-50 font-medium text-xs transition-colors"
               >
                 {purged ? 'Purge Complete' : 'Flush Positive Valve'}
               </button>
             </div>
 
-            <div className={`p-4 rounded-lg border transition-all ${wiped ? 'bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600' : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'}`}>
-              <span className="text-[10px] uppercase font-semibold text-zinc-500 block mb-1">Step 3</span>
-              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">Forward Poly-Wipe</h5>
+            <div className={`p-4 rounded-lg border transition-all ${wiped ? 'bg-stone-50 dark:bg-stone-800 border-stone-300 dark:border-stone-600' : 'bg-white dark:bg-stone-900 border-stone-200 dark:border-stone-800'}`}>
+              <span className="text-[10px] uppercase font-semibold text-stone-500 block mb-1">Step 3</span>
+              <h5 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-3">Forward Poly-Wipe</h5>
               <button
                 onClick={handleWipe}
                 disabled={!purged || wiped}
-                className="w-full py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 disabled:opacity-50 font-medium text-xs transition-colors"
+                className="w-full py-2 rounded-md bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 disabled:opacity-50 font-medium text-xs transition-colors"
               >
                 {wiped ? 'Wiped Forward' : 'Solvent Poly-Wipe'}
               </button>
             </div>
 
-            <div className={`p-4 rounded-lg border transition-all ${nozzleCheck ? 'bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600' : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'}`}>
-              <span className="text-[10px] uppercase font-semibold text-zinc-500 block mb-1">Step 4</span>
-              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">Nozzle Grid Inspection</h5>
+            <div className={`p-4 rounded-lg border transition-all ${nozzleCheck ? 'bg-stone-50 dark:bg-stone-800 border-stone-300 dark:border-stone-600' : 'bg-white dark:bg-stone-900 border-stone-200 dark:border-stone-800'}`}>
+              <span className="text-[10px] uppercase font-semibold text-stone-500 block mb-1">Step 4</span>
+              <h5 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-3">Nozzle Grid Inspection</h5>
               <button
                 onClick={handleNozzleTest}
                 disabled={!wiped || nozzleCheck !== null}
-                className="w-full py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 disabled:opacity-50 font-medium text-xs transition-colors"
+                className="w-full py-2 rounded-md bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 disabled:opacity-50 font-medium text-xs transition-colors"
               >
                 {nozzleCheck !== null ? `Grid Evaluated (${nozzleCheck}%)` : 'Print Test Pattern'}
               </button>
@@ -157,28 +157,28 @@ export default function EquipmentSimulator() {
           </div>
 
           {/* Console Display Screen */}
-          <div className="bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 sm:p-8 font-mono">
-            <div className="flex items-center justify-between text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-6 border-b border-zinc-200 dark:border-zinc-800 pb-3">
+          <div className="bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 rounded-xl p-6 sm:p-8 font-mono">
+            <div className="flex items-center justify-between text-xs font-medium text-stone-500 dark:text-stone-400 mb-6 border-b border-stone-200 dark:border-stone-800 pb-3">
               <span>AGFA TAURO H3300 LED - CARRIAGE HYDRAULICS</span>
-              <span className={`font-semibold ${powerOn ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-500'}`}>{powerOn ? 'PRESS READY' : 'STANDBY'}</span>
+              <span className={`font-semibold ${powerOn ? 'text-teal-600 dark:text-teal-400' : 'text-stone-500'}`}>{powerOn ? 'PRESS READY' : 'STANDBY'}</span>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-6">
-              <div className="bg-white dark:bg-zinc-900 p-4 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                <span className="text-[10px] text-zinc-500 block mb-1 font-semibold tracking-wider">SUB-TANK TEMP</span>
-                <span className={`text-xl font-bold ${powerOn ? 'text-zinc-900 dark:text-zinc-100' : 'text-zinc-400 dark:text-zinc-600'}`}>{subtankTemp}°C</span>
+              <div className="bg-white dark:bg-stone-900 p-4 rounded-lg border border-stone-200 dark:border-stone-800">
+                <span className="text-[10px] text-stone-500 block mb-1 font-semibold tracking-wider">SUB-TANK TEMP</span>
+                <span className={`text-xl font-bold ${powerOn ? 'text-stone-900 dark:text-stone-100' : 'text-stone-400 dark:text-stone-600'}`}>{subtankTemp}°C</span>
               </div>
-              <div className="bg-white dark:bg-zinc-900 p-4 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                <span className="text-[10px] text-zinc-500 block mb-1 font-semibold tracking-wider">MENISCUS VACUUM</span>
-                <span className={`text-xl font-bold ${powerOn ? 'text-zinc-900 dark:text-zinc-100' : 'text-zinc-400 dark:text-zinc-600'}`}>{powerOn ? '-3.5 mbar' : '0.0 mbar'}</span>
+              <div className="bg-white dark:bg-stone-900 p-4 rounded-lg border border-stone-200 dark:border-stone-800">
+                <span className="text-[10px] text-stone-500 block mb-1 font-semibold tracking-wider">MENISCUS VACUUM</span>
+                <span className={`text-xl font-bold ${powerOn ? 'text-stone-900 dark:text-stone-100' : 'text-stone-400 dark:text-stone-600'}`}>{powerOn ? '-3.5 mbar' : '0.0 mbar'}</span>
               </div>
-              <div className="bg-white dark:bg-zinc-900 p-4 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                <span className="text-[10px] text-zinc-500 block mb-1 font-semibold tracking-wider">GANTRY CLEARANCE</span>
-                <span className={`text-xl font-bold ${powerOn ? 'text-zinc-900 dark:text-zinc-100' : 'text-zinc-400 dark:text-zinc-600'}`}>{powerOn ? '1.8 mm' : 'OFF'}</span>
+              <div className="bg-white dark:bg-stone-900 p-4 rounded-lg border border-stone-200 dark:border-stone-800">
+                <span className="text-[10px] text-stone-500 block mb-1 font-semibold tracking-wider">GANTRY CLEARANCE</span>
+                <span className={`text-xl font-bold ${powerOn ? 'text-stone-900 dark:text-stone-100' : 'text-stone-400 dark:text-stone-600'}`}>{powerOn ? '1.8 mm' : 'OFF'}</span>
               </div>
-              <div className="bg-white dark:bg-zinc-900 p-4 rounded-lg border border-zinc-200 dark:border-zinc-800">
-                <span className="text-[10px] text-zinc-500 block mb-1 font-semibold tracking-wider">NOZZLE JETTING</span>
-                <span className={`text-xl font-bold ${nozzleCheck === 100 ? 'text-emerald-600 dark:text-emerald-400' : nozzleCheck === 85 ? 'text-amber-600 dark:text-amber-400' : 'text-zinc-400 dark:text-zinc-600'}`}>
+              <div className="bg-white dark:bg-stone-900 p-4 rounded-lg border border-stone-200 dark:border-stone-800">
+                <span className="text-[10px] text-stone-500 block mb-1 font-semibold tracking-wider">NOZZLE JETTING</span>
+                <span className={`text-xl font-bold ${nozzleCheck === 100 ? 'text-teal-600 dark:text-teal-400' : nozzleCheck === 85 ? 'text-orange-600 dark:text-orange-400' : 'text-stone-400 dark:text-stone-600'}`}>
                   {nozzleCheck ? `${nozzleCheck}%` : 'UNCHECKED'}
                 </span>
               </div>
@@ -186,18 +186,18 @@ export default function EquipmentSimulator() {
 
             {/* Targeted Clogged Jet Fix Handler */}
             {nozzleCheck === 85 && !cloggedNozzleFixed && (
-              <div className="p-4 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50 text-amber-800 dark:text-amber-300 text-sm space-y-2">
+              <div className="p-4 rounded-lg bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-900/50 text-orange-800 dark:text-orange-300 text-sm space-y-2">
                 <div className="flex items-center gap-2 font-semibold">
-                  <AlertTriangle className="w-4 h-4 text-amber-500" />
+                  <AlertTriangle className="w-4 h-4 text-orange-500" />
                   <span>NOZZLE DIAGNOSTIC: 15% missing jets detected in Cyan Channel 2.</span>
                 </div>
-                <p className="text-amber-700 dark:text-amber-400">Execute targeted localized vacuum flush on Cyan channel to pull out micro-bubbles.</p>
+                <p className="text-orange-700 dark:text-orange-400">Execute targeted localized vacuum flush on Cyan channel to pull out micro-bubbles.</p>
                 <button
                   onClick={() => {
                     setCloggedNozzleFixed(true);
                     setNozzleCheck(100);
                   }}
-                  className="px-4 py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 font-medium text-xs transition-colors"
+                  className="px-4 py-2 rounded-md bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 font-medium text-xs transition-colors"
                 >
                   Execute Targeted Cyan Meniscus Flush
                 </button>
@@ -205,7 +205,7 @@ export default function EquipmentSimulator() {
             )}
 
             {nozzleCheck === 100 && (
-              <div className="p-4 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 text-emerald-800 dark:text-emerald-300 text-sm flex items-center gap-2 font-medium">
+              <div className="p-4 rounded-lg bg-teal-50 dark:bg-teal-950/30 border border-teal-200 dark:border-teal-900/50 text-teal-800 dark:text-teal-300 text-sm flex items-center gap-2 font-medium">
                 <CheckCircle2 className="w-5 h-5 shrink-0" />
                 <span>PURGE SOP COMPLETE: All printhead channels jetting 100% solid. Safe for production run!</span>
               </div>
@@ -219,61 +219,61 @@ export default function EquipmentSimulator() {
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50 tracking-tight">Kongsberg & MultiCam CNC Finishing Operations Console</h4>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Align i-cut optical camera targets, apply 3D distortion mesh warping, and calibrate Chip Load feed speeds for Acrylic/ACM.</p>
+              <h4 className="text-2xl font-bold text-stone-900 dark:text-stone-50 tracking-tight">Kongsberg & MultiCam CNC Finishing Operations Console</h4>
+              <p className="text-sm text-stone-600 dark:text-stone-400 mt-1">Align i-cut optical camera targets, apply 3D distortion mesh warping, and calibrate Chip Load feed speeds for Acrylic/ACM.</p>
             </div>
             <button
               onClick={resetCNC}
-              className="flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 transition-colors text-sm font-medium text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700"
+              className="flex items-center gap-2 px-4 py-2 rounded-md bg-stone-100 hover:bg-stone-200 dark:bg-stone-800 dark:hover:bg-stone-700 transition-colors text-sm font-medium text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700"
             >
               <RefreshCw className="w-4 h-4" /> Reset CNC Console
             </button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div className={`p-4 rounded-lg border transition-all ${laserOn ? 'bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600' : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'}`}>
-              <span className="text-[10px] uppercase font-semibold text-zinc-500 block mb-1">Step 1</span>
-              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">Laser Target Pointer</h5>
+            <div className={`p-4 rounded-lg border transition-all ${laserOn ? 'bg-stone-50 dark:bg-stone-800 border-stone-300 dark:border-stone-600' : 'bg-white dark:bg-stone-900 border-stone-200 dark:border-stone-800'}`}>
+              <span className="text-[10px] uppercase font-semibold text-stone-500 block mb-1">Step 1</span>
+              <h5 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-3">Laser Target Pointer</h5>
               <button
                 onClick={() => setLaserOn(true)}
                 disabled={laserOn}
-                className="w-full py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 disabled:opacity-50 font-medium text-xs transition-colors"
+                className="w-full py-2 rounded-md bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 disabled:opacity-50 font-medium text-xs transition-colors"
               >
                 {laserOn ? 'Laser Aligned' : 'Activate Red Laser'}
               </button>
             </div>
 
-            <div className={`p-4 rounded-lg border transition-all ${cameraLocked ? 'bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600' : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'}`}>
-              <span className="text-[10px] uppercase font-semibold text-zinc-500 block mb-1">Step 2</span>
-              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">i-cut Camera Scan</h5>
+            <div className={`p-4 rounded-lg border transition-all ${cameraLocked ? 'bg-stone-50 dark:bg-stone-800 border-stone-300 dark:border-stone-600' : 'bg-white dark:bg-stone-900 border-stone-200 dark:border-stone-800'}`}>
+              <span className="text-[10px] uppercase font-semibold text-stone-500 block mb-1">Step 2</span>
+              <h5 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-3">i-cut Camera Scan</h5>
               <button
                 onClick={() => setCameraLocked(true)}
                 disabled={!laserOn || cameraLocked}
-                className="w-full py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 disabled:opacity-50 font-medium text-xs transition-colors"
+                className="w-full py-2 rounded-md bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 disabled:opacity-50 font-medium text-xs transition-colors"
               >
                 {cameraLocked ? 'Camera Lock (8 Dots)' : 'Scan 6mm Reg Marks'}
               </button>
             </div>
 
-            <div className={`p-4 rounded-lg border transition-all ${warpCalculated ? 'bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600' : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'}`}>
-              <span className="text-[10px] uppercase font-semibold text-zinc-500 block mb-1">Step 3</span>
-              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">3D Mesh Distortion</h5>
+            <div className={`p-4 rounded-lg border transition-all ${warpCalculated ? 'bg-stone-50 dark:bg-stone-800 border-stone-300 dark:border-stone-600' : 'bg-white dark:bg-stone-900 border-stone-200 dark:border-stone-800'}`}>
+              <span className="text-[10px] uppercase font-semibold text-stone-500 block mb-1">Step 3</span>
+              <h5 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-3">3D Mesh Distortion</h5>
               <button
                 onClick={() => setWarpCalculated(true)}
                 disabled={!cameraLocked || warpCalculated}
-                className="w-full py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 disabled:opacity-50 font-medium text-xs transition-colors"
+                className="w-full py-2 rounded-md bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 disabled:opacity-50 font-medium text-xs transition-colors"
               >
                 {warpCalculated ? 'Warp Adjusted (+0.12%)' : 'Apply Mesh Compensation'}
               </button>
             </div>
 
-            <div className={`p-4 rounded-lg border transition-all ${testCutDone ? 'bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600' : 'bg-white dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'}`}>
-              <span className="text-[10px] uppercase font-semibold text-zinc-500 block mb-1">Step 4</span>
-              <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">Execute CNC Cut Path</h5>
+            <div className={`p-4 rounded-lg border transition-all ${testCutDone ? 'bg-stone-50 dark:bg-stone-800 border-stone-300 dark:border-stone-600' : 'bg-white dark:bg-stone-900 border-stone-200 dark:border-stone-800'}`}>
+              <span className="text-[10px] uppercase font-semibold text-stone-500 block mb-1">Step 4</span>
+              <h5 className="text-sm font-semibold text-stone-900 dark:text-stone-100 mb-3">Execute CNC Cut Path</h5>
               <button
                 onClick={() => setTestCutDone(true)}
                 disabled={!warpCalculated || !chipLoadIdeal || testCutDone}
-                className="w-full py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 disabled:opacity-50 font-medium text-xs transition-colors"
+                className="w-full py-2 rounded-md bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 disabled:opacity-50 font-medium text-xs transition-colors"
               >
                 {testCutDone ? 'Cut Completed' : 'Fire CNC Spindle'}
               </button>
@@ -281,17 +281,17 @@ export default function EquipmentSimulator() {
           </div>
 
           {/* Interactive Router Feed & Speed Chip Load Tuner */}
-          <div className="p-6 md:p-8 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 space-y-6">
-            <h5 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider flex items-center gap-2">
-              <Gauge className="w-5 h-5 text-zinc-500" /> Troubleshooting Scenario: Acrylic Edge Melting
+          <div className="p-6 md:p-8 rounded-2xl bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-stone-800 space-y-6">
+            <h5 className="text-sm font-semibold text-stone-900 dark:text-stone-100 uppercase tracking-wider flex items-center gap-2">
+              <Gauge className="w-5 h-5 text-stone-500" /> Troubleshooting Scenario: Acrylic Edge Melting
             </h5>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span className="font-bold text-amber-600 dark:text-amber-500">SCENARIO:</span> You are routing 0.25&quot; Cast Acrylic. The cut edges are melting and plastic chips are welding to the bit. The current Chip Load is too low (causing extreme friction). Adjust the Spindle Speed (RPM) and Feed Rate (IPM) to achieve the ideal Chip Load target of ~0.008&quot;.
+            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+              <span className="font-bold text-orange-600 dark:text-orange-500">SCENARIO:</span> You are routing 0.25&quot; Cast Acrylic. The cut edges are melting and plastic chips are welding to the bit. The current Chip Load is too low (causing extreme friction). Adjust the Spindle Speed (RPM) and Feed Rate (IPM) to achieve the ideal Chip Load target of ~0.008&quot;.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
               <div>
-                <label className="block text-zinc-600 dark:text-zinc-400 mb-2 font-medium">Spindle Speed: <span className="text-zinc-900 dark:text-zinc-100 font-bold">{spindleRPM} RPM</span></label>
+                <label className="block text-stone-600 dark:text-stone-400 mb-2 font-medium">Spindle Speed: <span className="text-stone-900 dark:text-stone-100 font-bold">{spindleRPM} RPM</span></label>
                 <input
                   type="range"
                   min="12000"
@@ -299,12 +299,12 @@ export default function EquipmentSimulator() {
                   step="1000"
                   value={spindleRPM}
                   onChange={(e) => setSpindleRPM(Number(e.target.value))}
-                  className="w-full h-2 bg-zinc-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-zinc-900 dark:accent-zinc-100"
+                  className="w-full h-2 bg-stone-200 dark:bg-stone-700 rounded-lg appearance-none cursor-pointer accent-stone-900 dark:accent-stone-100"
                 />
               </div>
 
               <div>
-                <label className="block text-zinc-600 dark:text-zinc-400 mb-2 font-medium">Feed Rate: <span className="text-zinc-900 dark:text-zinc-100 font-bold">{feedRateIPM} IPM</span></label>
+                <label className="block text-stone-600 dark:text-stone-400 mb-2 font-medium">Feed Rate: <span className="text-stone-900 dark:text-stone-100 font-bold">{feedRateIPM} IPM</span></label>
                 <input
                   type="range"
                   min="60"
@@ -312,20 +312,20 @@ export default function EquipmentSimulator() {
                   step="10"
                   value={feedRateIPM}
                   onChange={(e) => setFeedRateIPM(Number(e.target.value))}
-                  className="w-full h-2 bg-zinc-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-zinc-900 dark:accent-zinc-100"
+                  className="w-full h-2 bg-stone-200 dark:bg-stone-700 rounded-lg appearance-none cursor-pointer accent-stone-900 dark:accent-stone-100"
                 />
               </div>
 
-              <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
-                <span className="text-[10px] font-bold text-zinc-500 block mb-2 tracking-wider">CALCULATED CHIP LOAD</span>
-                <span className={`text-xl font-bold font-mono ${chipLoadIdeal ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
+              <div className="p-4 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800">
+                <span className="text-[10px] font-bold text-stone-500 block mb-2 tracking-wider">CALCULATED CHIP LOAD</span>
+                <span className={`text-xl font-bold font-mono ${chipLoadIdeal ? 'text-teal-600 dark:text-teal-400' : 'text-rose-600 dark:text-rose-400'}`}>
                   {chipLoad}&quot; IPT {chipLoadIdeal ? '(IDEAL)' : chipLoad < 0.006 ? '(FAIL: Friction Heat!)' : '(FAIL: Bit Snapping!)'}
                 </span>
               </div>
             </div>
 
             {!chipLoadIdeal && (
-              <div className="p-4 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-400 text-sm">
+              <div className="p-4 rounded-lg bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-400 text-sm">
                 <span className="font-semibold block mb-1">Chip Load Warning:</span>
                 {chipLoad < 0.006
                   ? 'Chip load is too low! High friction will melt plastic onto the router bit. Increase Feed Rate (IPM) or lower Spindle RPM to reach 0.008" target.'
@@ -335,7 +335,7 @@ export default function EquipmentSimulator() {
           </div>
 
           {testCutDone && (
-            <div className="p-4 rounded-lg bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/50 text-blue-800 dark:text-blue-300 text-sm flex items-center gap-3 font-medium">
+            <div className="p-4 rounded-lg bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/50 text-indigo-800 dark:text-indigo-300 text-sm flex items-center gap-3 font-medium">
               <CheckCircle2 className="w-5 h-5 shrink-0" />
               <span>CNC CUT SUCCESSFUL: 3D Camera Warp applied (+0.12%). Single-flute O-flute bit produced polished acrylic cut edges!</span>
             </div>

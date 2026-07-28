@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable}`}>
-      <body className="font-sans antialiased min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 transition-colors duration-300">
+      <body className="font-sans antialiased min-h-screen bg-white text-stone-900 dark:bg-stone-950 dark:text-stone-50 transition-colors duration-300">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
