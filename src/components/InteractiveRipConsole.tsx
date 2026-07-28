@@ -17,8 +17,7 @@ export default function InteractiveRipConsole() {
   const allReady = isPassValid && isTacValid && isLinValid && isSpotValid;
 
   return (
-  return (
-    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
+    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 max-w-5xl mx-auto shadow-sm">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-5">
         <div>

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { modulesData } from '@/data/modulesData';
+import { MODULES } from '@/data/modulesData';
 import { BookOpen, Sliders, Printer, Award, CheckCircle2, ChevronRight } from 'lucide-react';
 import { getProgress } from '@/lib/progress';
 import { useEffect, useState } from 'react';
@@ -58,7 +58,7 @@ export default function Sidebar() {
       <div className="p-4 pt-2 border-t border-zinc-200 dark:border-zinc-800 flex-1">
         <h4 className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-3 px-2">Curriculum</h4>
         <nav className="space-y-1">
-          {modulesData.map((mod) => {
+          {MODULES.map((mod) => {
             const isCompleted = completedModules.includes(mod.id);
             const isActive = pathname === `/modules/${mod.id}`;
             return (

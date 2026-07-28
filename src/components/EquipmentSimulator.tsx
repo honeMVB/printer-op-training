@@ -65,8 +65,7 @@ export default function EquipmentSimulator() {
   };
 
   return (
-  return (
-    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
+    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm max-w-5xl mx-auto">
       {/* Simulator Switcher Tabs */}
       <div className="flex border-b border-zinc-200 dark:border-zinc-800 pb-4">
         <button

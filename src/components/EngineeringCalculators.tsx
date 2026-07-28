@@ -45,7 +45,6 @@ export default function EngineeringCalculators() {
   }
 
   return (
-  return (
     <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
       {/* Header */}
       <div className="flex items-center gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-5">
