@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { CheckCircle2, AlertTriangle, Info, Lightbulb, ShieldAlert, ChevronRight, Terminal, Copy, Check } from 'lucide-react';
+import CielabExplorer from './CielabExplorer';
 
 interface ContentProps {
   content: string;
@@ -110,6 +111,12 @@ export default function FormattedLessonContent({ content }: ContentProps) {
       // Horizontal Rule
       if (line.trim() === '---') {
         blocks.push({ type: 'hr', content: null });
+        continue;
+      }
+
+      // CIELAB Explorer Interactive Widget
+      if (line.trim() === '{{cielab_explorer}}') {
+        blocks.push({ type: 'cielab_explorer', content: null });
         continue;
       }
 
@@ -331,6 +338,9 @@ export default function FormattedLessonContent({ content }: ContentProps) {
               </div>
             );
           }
+
+          case 'cielab_explorer':
+            return <CielabExplorer key={idx} />;
 
           default:
             return null;
