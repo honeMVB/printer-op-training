@@ -53,25 +53,25 @@ export default function QuizComponent({ quiz }: { quiz: QuizData }) {
 
   if (score !== null) {
     const passed = score >= 70;
-    return (
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 text-center max-w-xl mx-auto shadow-2xl">
-        <div className={`w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6 shadow-xl ${
+      <div className="glass-panel border border-emerald-500/20 rounded-3xl p-10 text-center max-w-xl mx-auto shadow-[0_0_50px_rgba(16,185,129,0.15)] relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 pointer-events-none"></div>
+        <div className={`w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6 shadow-xl relative z-10 ${
           passed ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-red-500/20 text-red-400 border border-red-500/40'
         }`}>
           <Award className="w-10 h-10" />
         </div>
 
-        <h3 className="text-2xl font-bold text-white mb-2">
+        <h3 className="text-3xl font-black text-white mb-2 tracking-tight relative z-10">
           {passed ? 'Module Assessment Passed!' : 'Assessment Retake Suggested'}
         </h3>
-        <p className="text-slate-400 text-sm mb-6">
-          You scored <span className="text-cyan-400 font-bold text-xl">{score}%</span> on the {quiz.moduleTitle} knowledge test.
+        <p className="text-slate-300 text-base mb-8 font-light relative z-10">
+          You scored <span className="text-cyan-400 font-black text-2xl mx-1">{score}%</span> on the {quiz.moduleTitle} knowledge test.
         </p>
 
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-4 relative z-10">
           <button
             onClick={handleRestart}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold transition-all border border-slate-700"
+            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-sm font-bold transition-all border border-white/10 backdrop-blur-md shadow-lg"
           >
             <RotateCcw className="w-4 h-4" /> Retake Test
           </button>
@@ -81,43 +81,44 @@ export default function QuizComponent({ quiz }: { quiz: QuizData }) {
   }
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto shadow-xl">
+    <div className="glass-panel border border-white/10 rounded-3xl p-6 sm:p-10 max-w-2xl mx-auto shadow-2xl relative overflow-hidden">
+      <div className="absolute top-[-20%] left-[-10%] w-64 h-64 bg-cyan-500/10 blur-[80px] pointer-events-none rounded-full"></div>
       {/* Quiz Header */}
-      <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
-        <div className="flex items-center gap-2 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+      <div className="flex items-center justify-between border-b border-white/10 pb-5 mb-8 relative z-10">
+        <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-widest drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">
           <HelpCircle className="w-4 h-4" />
           <span>Knowledge Assessment</span>
         </div>
-        <span className="text-xs font-medium text-slate-400 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+        <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest bg-white/5 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
           Question {currentIdx + 1} of {quiz.questions.length}
         </span>
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden mb-6">
+      <div className="w-full bg-[#030305] shadow-inner border border-white/5 h-2 rounded-full overflow-hidden mb-8 relative z-10">
         <div
-          className="bg-cyan-500 h-full transition-all duration-300"
+          className="bg-gradient-to-r from-cyan-500 to-blue-500 h-full transition-all duration-500 ease-out shadow-[0_0_10px_rgba(6,182,212,0.5)]"
           style={{ width: `${((currentIdx + 1) / quiz.questions.length) * 100}%` }}
         ></div>
       </div>
 
       {/* Question Title */}
-      <h3 className="text-lg font-bold text-white mb-6 leading-relaxed">
+      <h3 className="text-xl sm:text-2xl font-black text-white mb-8 leading-tight tracking-tight relative z-10">
         {currentQ.question}
       </h3>
 
       {/* Options List */}
-      <div className="space-y-3 mb-6">
+      <div className="space-y-4 mb-8 relative z-10">
         {currentQ.options.map((opt, idx) => {
-          let btnStyle = 'bg-slate-800/80 border-slate-700 text-slate-200 hover:border-cyan-500/50 hover:bg-slate-800';
+          let btnStyle = 'bg-white/5 border-white/10 text-slate-300 hover:border-cyan-500/50 hover:bg-white/10 backdrop-blur-md shadow-inner';
           if (selectedOpt === idx) {
-            btnStyle = 'bg-cyan-500/20 border-cyan-500 text-cyan-300 font-semibold shadow-lg shadow-cyan-500/10';
+            btnStyle = 'bg-cyan-500/20 border-cyan-500/50 text-cyan-300 font-bold shadow-[0_0_15px_rgba(6,182,212,0.3)] backdrop-blur-md';
           }
           if (submitted) {
             if (idx === currentQ.correctIndex) {
-              btnStyle = 'bg-emerald-500/20 border-emerald-500 text-emerald-300 font-semibold';
+              btnStyle = 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold shadow-[0_0_15px_rgba(16,185,129,0.2)] backdrop-blur-md';
             } else if (selectedOpt === idx) {
-              btnStyle = 'bg-red-500/20 border-red-500 text-red-300 font-semibold';
+              btnStyle = 'bg-red-500/20 border-red-500/50 text-red-300 font-bold shadow-[0_0_15px_rgba(239,68,68,0.2)] backdrop-blur-md';
             }
           }
 
@@ -126,7 +127,7 @@ export default function QuizComponent({ quiz }: { quiz: QuizData }) {
               key={idx}
               onClick={() => handleSelectOption(idx)}
               disabled={submitted}
-              className={`w-full text-left p-4 rounded-xl border text-sm transition-all flex items-start justify-between gap-3 ${btnStyle}`}
+              className={`w-full text-left p-5 rounded-2xl border text-sm transition-all duration-300 flex items-start justify-between gap-3 ${btnStyle}`}
             >
               <span>{opt}</span>
               {submitted && idx === currentQ.correctIndex && (
@@ -142,29 +143,29 @@ export default function QuizComponent({ quiz }: { quiz: QuizData }) {
 
       {/* Explanation Box when submitted */}
       {submitted && (
-        <div className="p-4 rounded-xl bg-slate-800/90 border border-slate-700 text-xs text-slate-300 mb-6 leading-relaxed">
-          <span className="font-bold text-cyan-400 block mb-1">Detailed Explanation:</span>
+        <div className="p-6 rounded-3xl bg-[#030305]/80 border border-white/10 text-sm text-slate-300 mb-8 leading-relaxed shadow-inner backdrop-blur-md relative z-10 animate-fade-in">
+          <span className="font-bold text-cyan-400 block mb-2 text-xs uppercase tracking-wider">Detailed Explanation:</span>
           {currentQ.explanation}
         </div>
       )}
 
       {/* Action Controls */}
-      <div className="flex items-center justify-end">
+      <div className="flex items-center justify-end relative z-10 border-t border-white/10 pt-6">
         {!submitted ? (
           <button
             onClick={handleSubmitAnswer}
             disabled={selectedOpt === null}
-            className="px-6 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-bold text-sm transition-all shadow-lg shadow-cyan-500/20"
+            className="px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-black text-sm transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]"
           >
             Submit Answer
           </button>
         ) : (
           <button
             onClick={handleNextQuestion}
-            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-cyan-500/20"
+            className="flex items-center gap-3 px-8 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)]"
           >
             {currentIdx + 1 < quiz.questions.length ? 'Next Question' : 'Finish Quiz'}
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-5 h-5" />
           </button>
         )}
       </div>

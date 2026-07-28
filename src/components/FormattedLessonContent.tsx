@@ -180,8 +180,8 @@ export default function FormattedLessonContent({ content }: ContentProps) {
         switch (block.type) {
           case 'h2':
             return (
-              <h2 key={idx} className="text-xl sm:text-2xl font-black text-white pt-6 pb-2 border-b border-slate-800 flex items-center gap-2">
-                <span className="w-2 h-6 bg-cyan-500 rounded-full inline-block"></span>
+              <h2 key={idx} className="text-xl sm:text-2xl font-black text-white pt-6 pb-2 border-b border-white/10 flex items-center gap-2">
+                <span className="w-2 h-6 bg-cyan-500 rounded-full inline-block shadow-[0_0_10px_rgba(6,182,212,0.8)]"></span>
                 {block.content}
               </h2>
             );
@@ -231,7 +231,7 @@ export default function FormattedLessonContent({ content }: ContentProps) {
             );
 
           case 'hr':
-            return <hr key={idx} className="border-slate-800 my-6" />;
+            return <hr key={idx} className="border-white/10 my-6" />;
 
           case 'callout': {
             const { type, lines } = block.content;
@@ -254,7 +254,7 @@ export default function FormattedLessonContent({ content }: ContentProps) {
             }
 
             return (
-              <div key={idx} className={`p-5 rounded-2xl border ${calloutStyle} my-4 space-y-2 shadow-lg`}>
+              <div key={idx} className={`p-6 rounded-3xl border ${calloutStyle} my-6 space-y-3 shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-md`}>
                 <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider">
                   <Icon className="w-4 h-4" />
                   <span>{title}</span>
@@ -273,20 +273,20 @@ export default function FormattedLessonContent({ content }: ContentProps) {
             const { headers, dataRows } = block.content;
 
             return (
-              <div key={idx} className="my-6 overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/80 shadow-2xl">
+              <div key={idx} className="my-8 overflow-x-auto rounded-3xl border border-white/10 bg-[#030305]/80 backdrop-blur-md shadow-inner">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead>
-                    <tr className="bg-slate-800/90 border-b border-slate-700 text-cyan-400 font-bold uppercase tracking-wider text-[11px]">
+                    <tr className="bg-white/5 border-b border-white/10 text-cyan-400 font-bold uppercase tracking-wider text-[11px]">
                       {headers.map((h: string, hIdx: number) => (
-                        <th key={hIdx} className="p-3.5 sm:p-4">
+                        <th key={hIdx} className="p-4 sm:p-5">
                           {h}
                         </th>
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/60">
+                  <tbody className="divide-y divide-white/5">
                     {dataRows.map((r: string[], rIdx: number) => (
-                      <tr key={rIdx} className="hover:bg-slate-800/40 transition-colors">
+                      <tr key={rIdx} className="hover:bg-white/5 transition-colors duration-300">
                         {r.map((cell: string, cIdx: number) => (
                           <td key={cIdx} className="p-3.5 sm:p-4 text-slate-300">
                             {renderFormattedText(cell)}
@@ -303,9 +303,9 @@ export default function FormattedLessonContent({ content }: ContentProps) {
           case 'code': {
             const { lang, code } = block.content;
             return (
-              <div key={idx} className="my-6 rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden font-mono shadow-2xl">
-                <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800 text-xs text-slate-400">
-                  <span className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-cyan-400">
+              <div key={idx} className="my-8 rounded-3xl border border-white/10 bg-[#030305]/80 backdrop-blur-md overflow-hidden font-mono shadow-inner">
+                <div className="flex items-center justify-between px-5 py-3 bg-white/5 border-b border-white/10 text-xs text-slate-400">
+                  <span className="flex items-center gap-2 font-bold uppercase tracking-wider text-cyan-400">
                     <Terminal className="w-3.5 h-3.5" />
                     {lang || 'COMMAND / DIAGRAM'}
                   </span>

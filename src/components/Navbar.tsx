@@ -44,14 +44,14 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 text-white">
+    <header className="sticky top-0 z-50 bg-[#030305]/80 backdrop-blur-xl border-b border-white/10 text-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           
           {/* Logo & Brand */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-              <Printer className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden">
+              <img src="/industrial_logo.png" alt="PrintOp Logo" className="w-full h-full object-cover drop-shadow-[0_0_10px_rgba(6,182,212,0.8)]" />
             </div>
             <div>
               <span className="font-bold text-lg text-white tracking-wide flex items-center gap-1.5">
@@ -73,10 +73,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-sm font-medium transition-all ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 ${
                     active
-                      ? 'bg-cyan-500/15 text-cyan-400 border border-cyan-500/30'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                      ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400 border border-cyan-500/40 shadow-[0_0_15px_rgba(6,182,212,0.3)]'
+                      : 'text-slate-300 hover:text-white hover:bg-white/5 border border-transparent'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -88,9 +88,9 @@ export default function Navbar() {
 
           {/* User & Progress Badge */}
           <div className="hidden sm:flex items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-xs">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span className="text-slate-300 font-medium">{completedCount} / 7 Modules Done</span>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-xs backdrop-blur-md shadow-inner">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 drop-shadow-[0_0_5px_rgba(16,185,129,0.8)]" />
+              <span className="text-slate-200 font-bold tracking-wide">{completedCount} / 7 Modules Done</span>
             </div>
 
             {session && (
