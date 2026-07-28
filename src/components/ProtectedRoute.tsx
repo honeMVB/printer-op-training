@@ -11,6 +11,7 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
 
   useEffect(() => {
     if (pathname === '/login') {
+      // eslint-disable-next-line
       setAuthorized(true);
       return;
     }

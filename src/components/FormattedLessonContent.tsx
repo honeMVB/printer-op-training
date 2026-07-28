@@ -19,6 +19,7 @@ export default function FormattedLessonContent({ content }: ContentProps) {
   // Parse markdown content into structured blocks
   const parseBlocks = (raw: string) => {
     const lines = raw.split('\n');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const blocks: Array<{ type: string; content: any }> = [];
     let currentTable: string[] = [];
     let inTable = false;

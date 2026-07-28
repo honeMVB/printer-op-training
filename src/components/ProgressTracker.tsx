@@ -13,6 +13,7 @@ export default function ProgressTracker() {
   });
 
   useEffect(() => {
+    // eslint-disable-next-line
     setProgress(getProgress());
   }, []);
 

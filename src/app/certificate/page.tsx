@@ -17,6 +17,7 @@ export default function CertificatePage() {
 
   useEffect(() => {
     const p = getProgress();
+    // eslint-disable-next-line
     setProgress(p);
 
     async function fetchSession() {

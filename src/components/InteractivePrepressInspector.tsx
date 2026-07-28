@@ -55,7 +55,7 @@ export default function InteractivePrepressInspector() {
         <div className="bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 font-mono flex flex-col justify-between min-h-[320px]">
           <div className="flex items-center justify-between text-xs font-medium text-zinc-500 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800 pb-3 mb-4">
             <span>CANVAS_PREVIEW: JOB-8942_Header.ai</span>
-            <span className="text-zinc-700 dark:text-zinc-300">ARTBOARD: 48" x 24"</span>
+            <span className="text-zinc-700 dark:text-zinc-300">ARTBOARD: 48&quot; x 24&quot;</span>
           </div>
 
           {/* Graphic Art & Dieline Box Mockup */}
@@ -64,7 +64,7 @@ export default function InteractivePrepressInspector() {
             {/* Bleed Area Indicator */}
             <div className={`absolute inset-2 border-2 border-dashed transition-colors ${isBleedValid ? 'border-emerald-500/50 bg-emerald-50 dark:bg-emerald-500/10' : 'border-red-500/40 bg-red-50 dark:bg-red-500/10'}`}>
               <span className="absolute top-1 left-1 text-[10px] text-zinc-500 dark:text-zinc-400">
-                Bleed Area: {bleedAmount}" {isBleedValid ? '(PASS)' : '(FAIL: Missing Bleed)'}
+                Bleed Area: {bleedAmount}&quot; {isBleedValid ? '(PASS)' : '(FAIL: Missing Bleed)'}
               </span>
             </div>
 
@@ -154,13 +154,13 @@ export default function InteractivePrepressInspector() {
                 {isBleedValid ? 'PASS' : 'FAIL'}
               </span>
             </div>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-3">Requires 0.25" exterior bleed to prevent unprinted white board edges.</p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-3">Requires 0.25&quot; exterior bleed to prevent unprinted white board edges.</p>
             {!isBleedValid && (
               <button
                 onClick={handleFixBleed}
                 className="w-full py-2 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 font-medium text-sm transition-colors"
               >
-                Apply 0.25" Offset Path Bleed
+                Apply 0.25&quot; Offset Path Bleed
               </button>
             )}
           </div>

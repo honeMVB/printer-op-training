@@ -286,7 +286,7 @@ export default function EquipmentSimulator() {
               <Gauge className="w-5 h-5 text-zinc-500" /> Troubleshooting Scenario: Acrylic Edge Melting
             </h5>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <span className="font-bold text-amber-600 dark:text-amber-500">SCENARIO:</span> You are routing 0.25" Cast Acrylic. The cut edges are melting and plastic chips are welding to the bit. The current Chip Load is too low (causing extreme friction). Adjust the Spindle Speed (RPM) and Feed Rate (IPM) to achieve the ideal Chip Load target of ~0.008".
+              <span className="font-bold text-amber-600 dark:text-amber-500">SCENARIO:</span> You are routing 0.25&quot; Cast Acrylic. The cut edges are melting and plastic chips are welding to the bit. The current Chip Load is too low (causing extreme friction). Adjust the Spindle Speed (RPM) and Feed Rate (IPM) to achieve the ideal Chip Load target of ~0.008&quot;.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
@@ -319,7 +319,7 @@ export default function EquipmentSimulator() {
               <div className="p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
                 <span className="text-[10px] font-bold text-zinc-500 block mb-2 tracking-wider">CALCULATED CHIP LOAD</span>
                 <span className={`text-xl font-bold font-mono ${chipLoadIdeal ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
-                  {chipLoad}" IPT {chipLoadIdeal ? '(IDEAL)' : chipLoad < 0.006 ? '(FAIL: Friction Heat!)' : '(FAIL: Bit Snapping!)'}
+                  {chipLoad}&quot; IPT {chipLoadIdeal ? '(IDEAL)' : chipLoad < 0.006 ? '(FAIL: Friction Heat!)' : '(FAIL: Bit Snapping!)'}
                 </span>
               </div>
             </div>

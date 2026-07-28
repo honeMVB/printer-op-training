@@ -78,7 +78,7 @@ export default function EngineeringCalculators() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-6">
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              <strong className="text-zinc-900 dark:text-zinc-100">Chip Load</strong> is the actual physical thickness of the chip carved out by the router bit on each rotation. If it's too small, the bit creates friction and melts plastic.
+              <strong className="text-zinc-900 dark:text-zinc-100">Chip Load</strong> is the actual physical thickness of the chip carved out by the router bit on each rotation. If it&apos;s too small, the bit creates friction and melts plastic.
             </p>
             
             <div className="space-y-3">
@@ -108,7 +108,7 @@ export default function EngineeringCalculators() {
           <div className="bg-zinc-50 dark:bg-zinc-950 rounded-2xl p-8 border border-zinc-200 dark:border-zinc-800 flex flex-col justify-center items-center text-center">
             <span className="text-xs font-semibold tracking-widest text-zinc-500 mb-4 uppercase">CALCULATED CHIP LOAD</span>
             <div className={`text-6xl font-black font-mono mb-6 ${chipLoadColor.replace('text-emerald-400', 'text-emerald-600 dark:text-emerald-400').replace('text-red-400', 'text-red-600 dark:text-red-400')}`}>
-              {chipLoad}"
+              {chipLoad}&quot;
             </div>
             <div className={`px-4 py-1.5 rounded-full text-xs font-semibold mb-8 uppercase tracking-wide border ${chipLoadValue >= 0.006 && chipLoadValue <= 0.012 ? 'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-900/50' : 'bg-red-50 dark:bg-red-950/30 text-red-700 dark:text-red-400 border-red-200 dark:border-red-900/50'}`}>
               {chipLoadStatus}
