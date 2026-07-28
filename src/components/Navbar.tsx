@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { logoutWithServer, checkServerAuth } from '@/lib/auth';
 import { getProgress } from '@/lib/progress';
-import { Printer, BookOpen, LogOut, CheckCircle2, Menu, X, ShieldCheck, Sun, Moon } from 'lucide-react';
+import { Printer, BookOpen, LogOut, CheckCircle2, Menu, X, ShieldCheck, Sun, Moon, Sliders, Award } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 export default function Navbar() {
