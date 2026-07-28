@@ -53,6 +53,7 @@ export default function QuizComponent({ quiz }: { quiz: QuizData }) {
 
   if (score !== null) {
     const passed = score >= 70;
+    return (
       <div className="glass-panel border border-emerald-500/20 rounded-3xl p-10 text-center max-w-xl mx-auto shadow-[0_0_50px_rgba(16,185,129,0.15)] relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 pointer-events-none"></div>
         <div className={`w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6 shadow-xl relative z-10 ${
