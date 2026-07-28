@@ -82,19 +82,19 @@ export default function EngineeringCalculators() {
             </p>
             
             <div className="space-y-3">
-              <label className="text-xs font-semibold text-stone-500 tracking-wider uppercase">Spindle Speed (RPM)</label>
+              <label className="text-xs font-semibold text-stone-500 dark:text-stone-400 tracking-wider uppercase">Spindle Speed (RPM)</label>
               <input type="range" min="10000" max="24000" step="1000" value={spindleRpm} onChange={(e) => setSpindleRpm(Number(e.target.value))} className="w-full h-2 bg-stone-200 dark:bg-stone-800 rounded-lg appearance-none cursor-pointer accent-stone-900 dark:accent-stone-100" />
               <div className="text-right text-sm font-mono text-stone-900 dark:text-stone-100 font-bold">{spindleRpm.toLocaleString()} RPM</div>
             </div>
 
             <div className="space-y-3">
-              <label className="text-xs font-semibold text-stone-500 tracking-wider uppercase">Feed Rate (Inches Per Minute - IPM)</label>
+              <label className="text-xs font-semibold text-stone-500 dark:text-stone-400 tracking-wider uppercase">Feed Rate (Inches Per Minute - IPM)</label>
               <input type="range" min="50" max="400" step="10" value={feedRateIpm} onChange={(e) => setFeedRateIpm(Number(e.target.value))} className="w-full h-2 bg-stone-200 dark:bg-stone-800 rounded-lg appearance-none cursor-pointer accent-stone-900 dark:accent-stone-100" />
               <div className="text-right text-sm font-mono text-stone-900 dark:text-stone-100 font-bold">{feedRateIpm} IPM</div>
             </div>
 
             <div className="space-y-3">
-              <label className="text-xs font-semibold text-stone-500 tracking-wider uppercase">Number of Flutes (Cutting Edges)</label>
+              <label className="text-xs font-semibold text-stone-500 dark:text-stone-400 tracking-wider uppercase">Number of Flutes (Cutting Edges)</label>
               <div className="flex gap-3">
                 {[1, 2, 3, 4].map(num => (
                   <button key={num} onClick={() => setFlutes(num)} className={`flex-1 py-2.5 rounded-md font-medium transition-colors border ${flutes === num ? 'bg-stone-900 text-white border-stone-900 dark:bg-stone-100 dark:text-stone-900 dark:border-stone-100' : 'bg-white text-stone-600 border-stone-200 hover:bg-stone-50 dark:bg-stone-800 dark:text-stone-400 dark:border-stone-700 dark:hover:bg-stone-700'}`}>
@@ -106,7 +106,7 @@ export default function EngineeringCalculators() {
           </div>
 
           <div className="bg-stone-50 dark:bg-stone-950 rounded-2xl p-8 border border-stone-200 dark:border-stone-800 flex flex-col justify-center items-center text-center">
-            <span className="text-xs font-semibold tracking-widest text-stone-500 mb-4 uppercase">CALCULATED CHIP LOAD</span>
+            <span className="text-xs font-semibold tracking-widest text-stone-500 dark:text-stone-400 mb-4 uppercase">CALCULATED CHIP LOAD</span>
             <div className={`text-6xl font-black font-mono mb-6 ${chipLoadColor.replace('text-teal-400', 'text-teal-600 dark:text-teal-400').replace('text-rose-400', 'text-rose-600 dark:text-rose-400')}`}>
               {chipLoad}&quot;
             </div>
@@ -143,7 +143,7 @@ export default function EngineeringCalculators() {
           </div>
 
           <div className="bg-stone-50 dark:bg-stone-950 rounded-2xl p-8 border border-stone-200 dark:border-stone-800 flex flex-col justify-center items-center text-center">
-            <span className="text-xs font-semibold tracking-widest text-stone-500 mb-4 uppercase">TOTAL INK VOLUME (TAC)</span>
+            <span className="text-xs font-semibold tracking-widest text-stone-500 dark:text-stone-400 mb-4 uppercase">TOTAL INK VOLUME (TAC)</span>
             <div className={`text-6xl font-black font-mono mb-6 ${tacColor.replace('text-teal-400', 'text-teal-600 dark:text-teal-400').replace('text-rose-400', 'text-rose-600 dark:text-rose-400')}`}>
               {tac}%
             </div>

@@ -20,41 +20,37 @@ const ICON_MAP: Record<string, any> = {
 export default function DashboardPage() {
   return (
     <ProtectedRoute>
-      <div className="min-h-screen text-white pb-20 relative">
+      <div className="min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-50 pb-20 relative">
         
         {/* Hero Section */}
         <section className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[120px] pointer-events-none animate-pulse-glow"></div>
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none animate-float"></div>
-          
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-widest mb-6 shadow-[0_0_20px_rgba(6,182,212,0.15)]">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 text-xs font-bold uppercase tracking-widest mb-6">
                 <Zap className="w-4 h-4" /> Day-1 Job Readiness Online Course
               </div>
 
-              <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-[1.1] drop-shadow-2xl">
+              <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-stone-900 dark:text-stone-50 mb-6 leading-[1.1]">
                 Commercial Wide-Format Print & <br className="hidden sm:block" />
-                <span className="bg-gradient-to-r from-sky-400 via-indigo-400 to-indigo-400 bg-clip-text text-transparent text-glow">
+                <span className="text-stone-700 dark:text-stone-300">
                   CNC Digital Finishing Mastery
                 </span>
               </h1>
 
-            <p className="text-stone-300 text-lg max-w-2xl mb-10 leading-relaxed font-light">
+            <p className="text-stone-600 dark:text-stone-400 text-lg max-w-2xl mb-10 leading-relaxed font-light">
               Master industrial wide-format presses (AGFA TAURO, Mimaki), CNC flatbed cutters (Kongsberg, MultiCam), pre-press vector workflows, substrate science, RIP software, and shop floor SOPs.
             </p>
 
             {/* Progress Bar Widget */}
-            <div className="glass-panel rounded-2xl p-6 relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm rounded-2xl p-6 relative overflow-hidden group">
               <ProgressTracker />
             </div>
           </div>
           
           {/* Custom Bespoke Logo */}
           <div className="hidden md:flex flex-1 justify-center relative">
-             <div className="w-72 h-72 relative animate-float">
-                <img src="/industrial_logo.png" alt="Industrial Print Logo" className="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(6,182,212,0.3)]" />
+             <div className="w-72 h-72 relative">
+                <img src="/industrial_logo.png" alt="Industrial Print Logo" className="w-full h-full object-contain" />
              </div>
           </div>
         </div>
@@ -65,50 +61,50 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <Link
               href="/simulators"
-              className="glass-panel rounded-2xl p-6 hover:glass-panel-active transition-all duration-500 group flex items-center justify-between"
+              className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:border-stone-300 dark:hover:border-stone-700 rounded-2xl p-6 transition-all duration-500 group flex items-center justify-between"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-12 h-12 rounded-xl bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-center text-stone-600 dark:text-stone-400 group-hover:scale-110 transition-transform duration-500">
                   <Sliders className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white group-hover:text-sky-400 transition-colors duration-300">Equipment Simulators</h3>
-                  <p className="text-xs text-stone-400 mt-1">Press purge & CNC registration</p>
+                  <h3 className="text-base font-bold text-stone-900 dark:text-stone-50 group-hover:text-stone-700 dark:group-hover:text-stone-300 transition-colors duration-300">Equipment Simulators</h3>
+                  <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">Press purge & CNC registration</p>
                 </div>
               </div>
-              <ArrowRight className="w-5 h-5 text-stone-500 group-hover:text-sky-400 group-hover:translate-x-2 transition-all duration-300" />
+              <ArrowRight className="w-5 h-5 text-stone-500 dark:text-stone-400 group-hover:text-stone-700 dark:group-hover:text-stone-300 group-hover:translate-x-2 transition-all duration-300" />
             </Link>
 
             <Link
               href="/reference"
-              className="glass-panel rounded-2xl p-6 hover:glass-panel-active transition-all duration-500 group flex items-center justify-between"
+              className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:border-stone-300 dark:hover:border-stone-700 rounded-2xl p-6 transition-all duration-500 group flex items-center justify-between"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/20 to-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-12 h-12 rounded-xl bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-center text-stone-600 dark:text-stone-400 group-hover:scale-110 transition-transform duration-500">
                   <Printer className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white group-hover:text-indigo-400 transition-colors duration-300">Day-1 Reference Hub</h3>
-                  <p className="text-xs text-stone-400 mt-1">Materials, tooling & troubleshooting</p>
+                  <h3 className="text-base font-bold text-stone-900 dark:text-stone-50 group-hover:text-stone-700 dark:group-hover:text-stone-300 transition-colors duration-300">Day-1 Reference Hub</h3>
+                  <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">Materials, tooling & troubleshooting</p>
                 </div>
               </div>
-              <ArrowRight className="w-5 h-5 text-stone-500 group-hover:text-indigo-400 group-hover:translate-x-2 transition-all duration-300" />
+              <ArrowRight className="w-5 h-5 text-stone-500 dark:text-stone-400 group-hover:text-stone-700 dark:group-hover:text-stone-300 group-hover:translate-x-2 transition-all duration-300" />
             </Link>
 
             <Link
               href="/certificate"
-              className="glass-panel rounded-2xl p-6 hover:glass-panel-active transition-all duration-500 group flex items-center justify-between"
+              className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:border-stone-300 dark:hover:border-stone-700 rounded-2xl p-6 transition-all duration-500 group flex items-center justify-between"
             >
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-12 h-12 rounded-xl bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-center text-stone-600 dark:text-stone-400 group-hover:scale-110 transition-transform duration-500">
                   <Award className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white group-hover:text-teal-400 transition-colors duration-300">Mastery Certificate</h3>
-                  <p className="text-xs text-stone-400 mt-1">View completion status</p>
+                  <h3 className="text-base font-bold text-stone-900 dark:text-stone-50 group-hover:text-stone-700 dark:group-hover:text-stone-300 transition-colors duration-300">Mastery Certificate</h3>
+                  <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">View completion status</p>
                 </div>
               </div>
-              <ArrowRight className="w-5 h-5 text-stone-500 group-hover:text-teal-400 group-hover:translate-x-2 transition-all duration-300" />
+              <ArrowRight className="w-5 h-5 text-stone-500 dark:text-stone-400 group-hover:text-stone-700 dark:group-hover:text-stone-300 group-hover:translate-x-2 transition-all duration-300" />
             </Link>
           </div>
         </section>
@@ -117,8 +113,8 @@ export default function DashboardPage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <h2 className="text-3xl font-black text-white tracking-tight">Curriculum Modules</h2>
-              <p className="text-sm text-sky-400 mt-1 font-semibold tracking-wide uppercase">7 Ground-Up to Advanced Training Modules</p>
+              <h2 className="text-3xl font-black text-stone-900 dark:text-stone-50 tracking-tight">Curriculum Modules</h2>
+              <p className="text-sm text-stone-500 dark:text-stone-400 mt-1 font-semibold tracking-wide uppercase">7 Ground-Up to Advanced Training Modules</p>
             </div>
           </div>
 
@@ -128,36 +124,36 @@ export default function DashboardPage() {
               return (
                 <div
                   key={module.id}
-                  className="glass-panel rounded-3xl p-8 hover:glass-panel-active transition-all duration-500 flex flex-col justify-between group"
+                  className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:border-stone-300 dark:hover:border-stone-700 rounded-3xl p-8 transition-all duration-500 flex flex-col justify-between group"
                 >
                   <div>
                     {/* Header icon & badge */}
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500/20 to-indigo-500/20 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform duration-500 shadow-inner">
+                      <div className="w-14 h-14 rounded-2xl bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-center text-stone-600 dark:text-stone-400 group-hover:scale-110 transition-transform duration-500 shadow-inner">
                         <Icon className="w-7 h-7" />
                       </div>
-                      <span className="text-[10px] uppercase font-bold px-3 py-1.5 rounded-full bg-white/5 text-stone-300 border border-white/10 backdrop-blur-md">
+                      <span className="text-[10px] uppercase font-bold px-3 py-1.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
                         {module.difficulty}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white group-hover:text-sky-400 transition-colors duration-300 mb-3 leading-tight">
+                    <h3 className="text-xl font-bold text-stone-900 dark:text-stone-50 group-hover:text-stone-700 dark:group-hover:text-stone-300 transition-colors duration-300 mb-3 leading-tight">
                       {module.title}
                     </h3>
-                    <p className="text-sm text-stone-400 mb-8 line-clamp-3 leading-relaxed font-light">
+                    <p className="text-sm text-stone-600 dark:text-stone-400 mb-8 line-clamp-3 leading-relaxed font-light">
                       {module.shortDesc}
                     </p>
                   </div>
 
                   <div>
-                    <div className="flex items-center justify-between text-xs font-semibold text-stone-400 border-t border-white/10 pt-5 mb-5">
+                    <div className="flex items-center justify-between text-xs font-semibold text-stone-500 dark:text-stone-400 border-t border-stone-200 dark:border-stone-800 pt-5 mb-5">
                       <span className="flex items-center gap-1.5"><ClipboardCheck className="w-4 h-4"/> {module.estimatedHours}</span>
                       <span className="flex items-center gap-1.5"><BookOpen className="w-4 h-4"/> {module.lessons.length} Lessons</span>
                     </div>
 
                     <Link
                       href={`/modules/${module.id}`}
-                      className="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:scale-[1.02]"
+                      className="w-full py-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white dark:bg-stone-100 dark:hover:bg-stone-200 dark:text-stone-900 text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 group/btn hover:scale-[1.02]"
                     >
                       Enter Module
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform" />

@@ -31,10 +31,10 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
 
   if (authorized === null) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-stone-950 text-white">
+      <div className="min-h-screen flex items-center justify-center bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-50">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 border-4 border-sky-500 border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-stone-400 text-sm font-medium">Verifying HTTP-Only Session Cookie...</p>
+          <div className="w-12 h-12 border-4 border-stone-900 dark:border-stone-100 border-t-transparent dark:border-t-transparent rounded-full animate-spin"></div>
+          <p className="text-stone-600 dark:text-stone-400 text-sm font-medium">Verifying HTTP-Only Session Cookie...</p>
         </div>
       </div>
     );

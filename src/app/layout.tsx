@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${outfit.variable}`}>
-      <body className="font-sans antialiased min-h-screen bg-white text-stone-900 dark:bg-stone-950 dark:text-stone-50 transition-colors duration-300">
+      <body className="font-sans antialiased min-h-screen bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-50 transition-colors duration-200">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -29,7 +29,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <div className="flex max-w-screen-2xl mx-auto w-full">
+          <div className="flex min-h-[calc(100vh-3.5rem)]">
             <Sidebar />
             <main className="flex-1 w-full min-w-0">
               {children}

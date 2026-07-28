@@ -54,14 +54,14 @@ export default function InteractiveRipConsole() {
           <div className="space-y-4 my-4">
             <div className="grid grid-cols-2 gap-4 text-xs">
               <div className="bg-white dark:bg-stone-900 p-4 rounded-lg border border-stone-200 dark:border-stone-800">
-                <span className="text-stone-500 block text-[10px] uppercase font-semibold">PASS COUNT MODE</span>
+                <span className="text-stone-500 dark:text-stone-400 block text-[10px] uppercase font-semibold">PASS COUNT MODE</span>
                 <span className={`text-sm font-bold mt-1 block ${isPassValid ? 'text-teal-600 dark:text-teal-400' : 'text-orange-600 dark:text-orange-400'}`}>
                   {passCount}-Pass ({passCount >= 8 ? 'High Quality' : passCount === 6 ? 'Production' : 'Draft / Banding Risk'})
                 </span>
               </div>
 
               <div className="bg-white dark:bg-stone-900 p-4 rounded-lg border border-stone-200 dark:border-stone-800">
-                <span className="text-stone-500 block text-[10px] uppercase font-semibold mb-1">TOTAL INK LIMIT (TAC)</span>
+                <span className="text-stone-500 dark:text-stone-400 block text-[10px] uppercase font-semibold mb-1">TOTAL INK LIMIT (TAC)</span>
                 <span className={`text-sm font-bold ${isTacValid ? 'text-teal-600 dark:text-teal-400' : 'text-rose-600 dark:text-rose-400'}`}>
                   {tacLimit}% {isTacValid ? '(Cured Solid)' : '(CRITICAL: Wet Pooling!)'}
                 </span>
@@ -70,14 +70,14 @@ export default function InteractiveRipConsole() {
 
             <div className="grid grid-cols-2 gap-4 text-xs">
               <div className="bg-white dark:bg-stone-900 p-4 rounded-lg border border-stone-200 dark:border-stone-800">
-                <span className="text-stone-500 block text-[10px] uppercase font-semibold">LINEARIZATION LUT</span>
+                <span className="text-stone-500 dark:text-stone-400 block text-[10px] uppercase font-semibold">LINEARIZATION LUT</span>
                 <span className={`text-sm font-bold mt-1 block ${isLinValid ? 'text-teal-600 dark:text-teal-400' : 'text-orange-600 dark:text-orange-400'}`}>
                   {isLinValid ? 'Linearized (Spectro)' : 'Uncalibrated (Dot Gain Shift)'}
                 </span>
               </div>
 
               <div className="bg-white dark:bg-stone-900 p-4 rounded-lg border border-stone-200 dark:border-stone-800">
-                <span className="text-stone-500 block text-[10px] uppercase font-semibold">PANTONE SPOT OVERRIDE</span>
+                <span className="text-stone-500 dark:text-stone-400 block text-[10px] uppercase font-semibold">PANTONE SPOT OVERRIDE</span>
                 <span className={`text-sm font-bold mt-1 block ${isSpotValid ? 'text-teal-600 dark:text-teal-400' : 'text-orange-600 dark:text-orange-400'}`}>
                   {isSpotValid ? 'PMS 185C Grid Matched' : 'Standard CMYK Fallback'}
                 </span>
@@ -91,7 +91,7 @@ export default function InteractiveRipConsole() {
                 <div
                   className={`h-1.5 rounded transition-all ${isLinValid ? 'bg-teal-500 w-full' : 'bg-orange-500 w-2/3'}`}
                 ></div>
-                <span className="absolute right-2 text-[10px] text-stone-500 font-medium">
+                <span className="absolute right-2 text-[10px] text-stone-500 dark:text-stone-400 font-medium">
                   {isLinValid ? '100% Linear Response Curve' : 'High Dot Gain Deviation (+18%)'}
                 </span>
               </div>
@@ -117,7 +117,7 @@ export default function InteractiveRipConsole() {
         {/* Right: Interactive RIP Settings */}
         <div className="space-y-4">
           <h4 className="text-sm font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2 pb-2">
-            <Cpu className="w-4 h-4 text-stone-500" /> RIP Media Controls
+            <Cpu className="w-4 h-4 text-stone-500 dark:text-stone-400" /> RIP Media Controls
           </h4>
 
           {/* Setting 1: Pass Count Selection */}
@@ -160,7 +160,7 @@ export default function InteractiveRipConsole() {
               onChange={(e) => setTacLimit(Number(e.target.value))}
               className="w-full h-2 bg-stone-200 dark:bg-stone-800 rounded-lg appearance-none cursor-pointer accent-stone-900 dark:accent-stone-100"
             />
-            <p className="text-xs text-stone-500 mt-2">Set between 260% and 300% to ensure 100% UV lamp cure without ink pooling.</p>
+            <p className="text-xs text-stone-500 dark:text-stone-400 mt-2">Set between 260% and 300% to ensure 100% UV lamp cure without ink pooling.</p>
           </div>
 
           {/* Setting 3: Execute Spectrophotometer Linearization */}

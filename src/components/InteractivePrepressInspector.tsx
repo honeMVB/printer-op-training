@@ -105,7 +105,7 @@ export default function InteractivePrepressInspector() {
         {/* Right: Illustrator Attributes Inspection Panel */}
         <div className="space-y-4">
           <h4 className="text-sm font-semibold text-stone-900 dark:text-stone-100 flex items-center gap-2 pb-2">
-            <Settings className="w-4 h-4 text-stone-500" /> Vector Attribute Controls
+            <Settings className="w-4 h-4 text-stone-500 dark:text-stone-400" /> Vector Attribute Controls
           </h4>
 
           {/* Check 1: Dieline Spot Color */}

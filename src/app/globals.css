@@ -19,8 +19,8 @@
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -29,9 +29,14 @@
 
 ::-webkit-scrollbar-thumb {
   @apply bg-stone-300 dark:bg-stone-700;
-  border-radius: 4px;
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-stone-400 dark:bg-stone-600;
+}
+
+/* Sidebar collapse transition */
+.sidebar-transition {
+  transition: width 200ms ease-in-out, padding 200ms ease-in-out;
 }
