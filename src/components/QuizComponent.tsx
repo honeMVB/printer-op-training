@@ -54,25 +54,24 @@ export default function QuizComponent({ quiz }: { quiz: QuizData }) {
   if (score !== null) {
     const passed = score >= 70;
     return (
-      <div className="glass-panel border border-emerald-500/20 rounded-3xl p-10 text-center max-w-xl mx-auto shadow-[0_0_50px_rgba(16,185,129,0.15)] relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 pointer-events-none"></div>
-        <div className={`w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6 shadow-xl relative z-10 ${
-          passed ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-red-500/20 text-red-400 border border-red-500/40'
+      <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-10 text-center max-w-xl mx-auto shadow-sm">
+        <div className={`w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6 border ${
+          passed ? 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800' : 'bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 border-amber-200 dark:border-amber-800'
         }`}>
           <Award className="w-10 h-10" />
         </div>
 
-        <h3 className="text-3xl font-black text-white mb-2 tracking-tight relative z-10">
+        <h3 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-50 mb-2 tracking-tight">
           {passed ? 'Module Assessment Passed!' : 'Assessment Retake Suggested'}
         </h3>
-        <p className="text-slate-300 text-base mb-8 font-light relative z-10">
-          You scored <span className="text-cyan-400 font-black text-2xl mx-1">{score}%</span> on the {quiz.moduleTitle} knowledge test.
+        <p className="text-zinc-600 dark:text-zinc-400 text-base mb-8">
+          You scored <span className="text-zinc-900 dark:text-zinc-100 font-bold text-2xl mx-1">{score}%</span> on the {quiz.moduleTitle} knowledge test.
         </p>
 
-        <div className="flex items-center justify-center gap-4 relative z-10">
+        <div className="flex items-center justify-center gap-4">
           <button
             onClick={handleRestart}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 text-sm font-bold transition-all border border-white/10 backdrop-blur-md shadow-lg"
+            className="flex items-center gap-2 px-6 py-2.5 rounded-md bg-zinc-100 hover:bg-zinc-200 text-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-zinc-300 font-medium transition-colors border border-zinc-200 dark:border-zinc-700"
           >
             <RotateCcw className="w-4 h-4" /> Retake Test
           </button>
@@ -82,44 +81,43 @@ export default function QuizComponent({ quiz }: { quiz: QuizData }) {
   }
 
   return (
-    <div className="glass-panel border border-white/10 rounded-3xl p-6 sm:p-10 max-w-2xl mx-auto shadow-2xl relative overflow-hidden">
-      <div className="absolute top-[-20%] left-[-10%] w-64 h-64 bg-cyan-500/10 blur-[80px] pointer-events-none rounded-full"></div>
+    <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 sm:p-10 max-w-2xl mx-auto shadow-sm">
       {/* Quiz Header */}
-      <div className="flex items-center justify-between border-b border-white/10 pb-5 mb-8 relative z-10">
-        <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold uppercase tracking-widest drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">
-          <HelpCircle className="w-4 h-4" />
+      <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-5 mb-8">
+        <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 text-xs font-semibold uppercase tracking-wider">
+          <HelpCircle className="w-4 h-4 text-zinc-500" />
           <span>Knowledge Assessment</span>
         </div>
-        <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest bg-white/5 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-md">
+        <span className="text-[10px] font-semibold text-zinc-700 dark:text-zinc-300 uppercase tracking-widest bg-zinc-100 dark:bg-zinc-800 px-3 py-1 rounded-full">
           Question {currentIdx + 1} of {quiz.questions.length}
         </span>
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full bg-[#030305] shadow-inner border border-white/5 h-2 rounded-full overflow-hidden mb-8 relative z-10">
+      <div className="w-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 h-2 rounded-full overflow-hidden mb-8">
         <div
-          className="bg-gradient-to-r from-cyan-500 to-blue-500 h-full transition-all duration-500 ease-out shadow-[0_0_10px_rgba(6,182,212,0.5)]"
+          className="bg-zinc-900 dark:bg-zinc-100 h-full transition-all duration-500 ease-out"
           style={{ width: `${((currentIdx + 1) / quiz.questions.length) * 100}%` }}
         ></div>
       </div>
 
       {/* Question Title */}
-      <h3 className="text-xl sm:text-2xl font-black text-white mb-8 leading-tight tracking-tight relative z-10">
+      <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-50 mb-8 leading-tight tracking-tight">
         {currentQ.question}
       </h3>
 
       {/* Options List */}
-      <div className="space-y-4 mb-8 relative z-10">
+      <div className="space-y-4 mb-8">
         {currentQ.options.map((opt, idx) => {
-          let btnStyle = 'bg-white/5 border-white/10 text-slate-300 hover:border-cyan-500/50 hover:bg-white/10 backdrop-blur-md shadow-inner';
+          let btnStyle = 'bg-zinc-50 dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-900';
           if (selectedOpt === idx) {
-            btnStyle = 'bg-cyan-500/20 border-cyan-500/50 text-cyan-300 font-bold shadow-[0_0_15px_rgba(6,182,212,0.3)] backdrop-blur-md';
+            btnStyle = 'bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-zinc-50 font-medium';
           }
           if (submitted) {
             if (idx === currentQ.correctIndex) {
-              btnStyle = 'bg-emerald-500/20 border-emerald-500/50 text-emerald-300 font-bold shadow-[0_0_15px_rgba(16,185,129,0.2)] backdrop-blur-md';
+              btnStyle = 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-900/50 text-emerald-800 dark:text-emerald-300 font-medium';
             } else if (selectedOpt === idx) {
-              btnStyle = 'bg-red-500/20 border-red-500/50 text-red-300 font-bold shadow-[0_0_15px_rgba(239,68,68,0.2)] backdrop-blur-md';
+              btnStyle = 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-900/50 text-red-800 dark:text-red-300 font-medium';
             }
           }
 
@@ -128,14 +126,14 @@ export default function QuizComponent({ quiz }: { quiz: QuizData }) {
               key={idx}
               onClick={() => handleSelectOption(idx)}
               disabled={submitted}
-              className={`w-full text-left p-5 rounded-2xl border text-sm transition-all duration-300 flex items-start justify-between gap-3 ${btnStyle}`}
+              className={`w-full text-left p-4 rounded-xl border text-sm transition-colors flex items-start justify-between gap-3 ${btnStyle}`}
             >
-              <span>{opt}</span>
+              <span className="leading-relaxed">{opt}</span>
               {submitted && idx === currentQ.correctIndex && (
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-500 shrink-0 mt-0.5" />
               )}
               {submitted && selectedOpt === idx && idx !== currentQ.correctIndex && (
-                <XCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+                <XCircle className="w-5 h-5 text-red-600 dark:text-red-500 shrink-0 mt-0.5" />
               )}
             </button>
           );
@@ -144,29 +142,29 @@ export default function QuizComponent({ quiz }: { quiz: QuizData }) {
 
       {/* Explanation Box when submitted */}
       {submitted && (
-        <div className="p-6 rounded-3xl bg-[#030305]/80 border border-white/10 text-sm text-slate-300 mb-8 leading-relaxed shadow-inner backdrop-blur-md relative z-10 animate-fade-in">
-          <span className="font-bold text-cyan-400 block mb-2 text-xs uppercase tracking-wider">Detailed Explanation:</span>
+        <div className="p-5 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-sm text-zinc-700 dark:text-zinc-300 mb-8 leading-relaxed">
+          <span className="font-semibold text-zinc-900 dark:text-zinc-100 block mb-2 text-xs uppercase tracking-wider">Detailed Explanation:</span>
           {currentQ.explanation}
         </div>
       )}
 
       {/* Action Controls */}
-      <div className="flex items-center justify-end relative z-10 border-t border-white/10 pt-6">
+      <div className="flex items-center justify-end border-t border-zinc-200 dark:border-zinc-800 pt-6">
         {!submitted ? (
           <button
             onClick={handleSubmitAnswer}
             disabled={selectedOpt === null}
-            className="px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-black text-sm transition-all shadow-[0_0_20px_rgba(6,182,212,0.4)]"
+            className="px-6 py-2.5 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm transition-colors"
           >
             Submit Answer
           </button>
         ) : (
           <button
             onClick={handleNextQuestion}
-            className="flex items-center gap-3 px-8 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black text-sm transition-all shadow-[0_0_20px_rgba(16,185,129,0.4)]"
+            className="flex items-center gap-2 px-6 py-2.5 rounded-md bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 font-medium text-sm transition-colors"
           >
             {currentIdx + 1 < quiz.questions.length ? 'Next Question' : 'Finish Quiz'}
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4" />
           </button>
         )}
       </div>

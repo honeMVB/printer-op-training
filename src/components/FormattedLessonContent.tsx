@@ -151,21 +151,21 @@ export default function FormattedLessonContent({ content }: ContentProps) {
     return parts.map((part, idx) => {
       if (part.startsWith('**') && part.endsWith('**')) {
         return (
-          <strong key={idx} className="font-bold text-cyan-300">
+          <strong key={idx} className="font-semibold text-zinc-900 dark:text-zinc-100">
             {part.slice(2, -2)}
           </strong>
         );
       }
       if (part.startsWith('`') && part.endsWith('`')) {
         return (
-          <code key={idx} className="px-1.5 py-0.5 rounded bg-slate-800 text-cyan-400 font-mono text-xs border border-slate-700">
+          <code key={idx} className="px-1.5 py-0.5 rounded-md bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200 font-mono text-xs border border-zinc-200 dark:border-zinc-700">
             {part.slice(1, -1)}
           </code>
         );
       }
       if (part.startsWith('$') && part.endsWith('$')) {
         return (
-          <span key={idx} className="font-mono text-amber-300 bg-amber-500/10 px-1.5 py-0.5 rounded text-xs">
+          <span key={idx} className="font-mono text-zinc-800 bg-zinc-100 dark:text-zinc-200 dark:bg-zinc-800 px-1.5 py-0.5 rounded-md text-xs">
             {part.slice(1, -1)}
           </span>
         );
@@ -175,35 +175,35 @@ export default function FormattedLessonContent({ content }: ContentProps) {
   };
 
   return (
-    <div className="space-y-6 text-slate-300 leading-relaxed text-sm">
+    <div className="space-y-6 text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
       {blocks.map((block, idx) => {
         switch (block.type) {
           case 'h2':
             return (
-              <h2 key={idx} className="text-xl sm:text-2xl font-black text-white pt-6 pb-2 border-b border-white/10 flex items-center gap-2">
-                <span className="w-2 h-6 bg-cyan-500 rounded-full inline-block shadow-[0_0_10px_rgba(6,182,212,0.8)]"></span>
+              <h2 key={idx} className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-50 pt-6 pb-2 border-b border-zinc-200 dark:border-zinc-800 flex items-center gap-2">
+                <span className="w-1.5 h-6 bg-zinc-900 dark:bg-zinc-100 rounded-full inline-block"></span>
                 {block.content}
               </h2>
             );
 
           case 'h3':
             return (
-              <h3 key={idx} className="text-lg font-bold text-white pt-4 pb-1 flex items-center gap-2">
-                <ChevronRight className="w-4 h-4 text-cyan-400" />
+              <h3 key={idx} className="text-lg font-bold text-zinc-900 dark:text-zinc-50 pt-4 pb-1 flex items-center gap-2">
+                <ChevronRight className="w-5 h-5 text-zinc-400 dark:text-zinc-500" />
                 {block.content}
               </h3>
             );
 
           case 'h4':
             return (
-              <h4 key={idx} className="text-base font-bold text-cyan-300 pt-3 pb-1">
+              <h4 key={idx} className="text-base font-semibold text-zinc-800 dark:text-zinc-200 pt-3 pb-1">
                 {block.content}
               </h4>
             );
 
           case 'p':
             return (
-              <p key={idx} className="text-slate-300 leading-relaxed text-sm sm:text-base">
+              <p key={idx} className="text-zinc-700 dark:text-zinc-300 leading-relaxed text-sm sm:text-base">
                 {renderFormattedText(block.content)}
               </p>
             );
@@ -211,8 +211,8 @@ export default function FormattedLessonContent({ content }: ContentProps) {
           case 'li':
             return (
               <div key={idx} className="flex items-start gap-2.5 my-1 pl-2">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-1" />
-                <span className="text-slate-200 text-sm leading-relaxed">
+                <CheckCircle2 className="w-4 h-4 text-zinc-400 dark:text-zinc-500 shrink-0 mt-1" />
+                <span className="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed">
                   {renderFormattedText(block.content)}
                 </span>
               </div>
@@ -221,45 +221,45 @@ export default function FormattedLessonContent({ content }: ContentProps) {
           case 'num-li':
             return (
               <div key={idx} className="flex items-start gap-2.5 my-1 pl-2">
-                <span className="w-5 h-5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-5 h-5 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-semibold flex items-center justify-center shrink-0 mt-0.5">
                   •
                 </span>
-                <span className="text-slate-200 text-sm leading-relaxed">
+                <span className="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed">
                   {renderFormattedText(block.content)}
                 </span>
               </div>
             );
 
           case 'hr':
-            return <hr key={idx} className="border-white/10 my-6" />;
+            return <hr key={idx} className="border-zinc-200 dark:border-zinc-800 my-6" />;
 
           case 'callout': {
             const { type, lines } = block.content;
-            let calloutStyle = 'bg-cyan-500/10 border-cyan-500/30 text-cyan-200';
+            let calloutStyle = 'bg-zinc-50 border-zinc-200 text-zinc-800 dark:bg-zinc-900 dark:border-zinc-800 dark:text-zinc-200';
             let Icon = Info;
             let title = 'Note';
 
             if (type === 'IMPORTANT') {
-              calloutStyle = 'bg-red-500/10 border-red-500/30 text-red-200';
+              calloutStyle = 'bg-red-50 border-red-200 text-red-800 dark:bg-red-950/30 dark:border-red-900/50 dark:text-red-300';
               Icon = ShieldAlert;
               title = 'CRITICAL OPERATIONAL MANDATE';
             } else if (type === 'WARNING') {
-              calloutStyle = 'bg-amber-500/10 border-amber-500/30 text-amber-200';
+              calloutStyle = 'bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950/30 dark:border-amber-900/50 dark:text-amber-300';
               Icon = AlertTriangle;
               title = 'SAFETY WARNING';
             } else if (type === 'TIP') {
-              calloutStyle = 'bg-emerald-500/10 border-emerald-500/30 text-emerald-200';
+              calloutStyle = 'bg-emerald-50 border-emerald-200 text-emerald-800 dark:bg-emerald-950/30 dark:border-emerald-900/50 dark:text-emerald-300';
               Icon = Lightbulb;
               title = 'OPERATOR PRO TIP';
             }
 
             return (
-              <div key={idx} className={`p-6 rounded-3xl border ${calloutStyle} my-6 space-y-3 shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-md`}>
-                <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider">
+              <div key={idx} className={`p-5 rounded-xl border ${calloutStyle} my-6 space-y-3`}>
+                <div className="flex items-center gap-2 font-semibold text-xs uppercase tracking-wider">
                   <Icon className="w-4 h-4" />
                   <span>{title}</span>
                 </div>
-                <div className="text-xs sm:text-sm space-y-1 leading-relaxed">
+                <div className="text-sm space-y-2 leading-relaxed opacity-90">
                   {lines.map((l: string, i: number) => (
                     <p key={i}>{renderFormattedText(l)}</p>
                   ))}
@@ -273,10 +273,10 @@ export default function FormattedLessonContent({ content }: ContentProps) {
             const { headers, dataRows } = block.content;
 
             return (
-              <div key={idx} className="my-8 overflow-x-auto rounded-3xl border border-white/10 bg-[#030305]/80 backdrop-blur-md shadow-inner">
+              <div key={idx} className="my-8 overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 shadow-sm">
                 <table className="w-full text-left border-collapse text-xs sm:text-sm">
                   <thead>
-                    <tr className="bg-white/5 border-b border-white/10 text-cyan-400 font-bold uppercase tracking-wider text-[11px]">
+                    <tr className="bg-zinc-50 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 font-semibold uppercase tracking-wider text-[11px]">
                       {headers.map((h: string, hIdx: number) => (
                         <th key={hIdx} className="p-4 sm:p-5">
                           {h}
@@ -284,11 +284,11 @@ export default function FormattedLessonContent({ content }: ContentProps) {
                       ))}
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/5">
+                  <tbody className="divide-y divide-zinc-200 dark:divide-zinc-800">
                     {dataRows.map((r: string[], rIdx: number) => (
-                      <tr key={rIdx} className="hover:bg-white/5 transition-colors duration-300">
+                      <tr key={rIdx} className="hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors">
                         {r.map((cell: string, cIdx: number) => (
-                          <td key={cIdx} className="p-3.5 sm:p-4 text-slate-300">
+                          <td key={cIdx} className="p-3.5 sm:p-4 text-zinc-700 dark:text-zinc-300">
                             {renderFormattedText(cell)}
                           </td>
                         ))}
@@ -303,19 +303,19 @@ export default function FormattedLessonContent({ content }: ContentProps) {
           case 'code': {
             const { lang, code } = block.content;
             return (
-              <div key={idx} className="my-8 rounded-3xl border border-white/10 bg-[#030305]/80 backdrop-blur-md overflow-hidden font-mono shadow-inner">
-                <div className="flex items-center justify-between px-5 py-3 bg-white/5 border-b border-white/10 text-xs text-slate-400">
-                  <span className="flex items-center gap-2 font-bold uppercase tracking-wider text-cyan-400">
-                    <Terminal className="w-3.5 h-3.5" />
+              <div key={idx} className="my-8 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950 overflow-hidden font-mono shadow-sm">
+                <div className="flex items-center justify-between px-4 py-2.5 bg-white dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400">
+                  <span className="flex items-center gap-2 font-semibold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
+                    <Terminal className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
                     {lang || 'COMMAND / DIAGRAM'}
                   </span>
                   <button
                     onClick={() => handleCopyCode(code, idx)}
-                    className="flex items-center gap-1 hover:text-white transition-colors"
+                    className="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
                   >
                     {copiedIndex === idx ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-400" /> Copied
+                        <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Copied
                       </>
                     ) : (
                       <>
@@ -324,7 +324,7 @@ export default function FormattedLessonContent({ content }: ContentProps) {
                     )}
                   </button>
                 </div>
-                <pre className="p-4 overflow-x-auto text-xs text-cyan-200 leading-relaxed font-mono">
+                <pre className="p-4 overflow-x-auto text-xs sm:text-sm text-zinc-800 dark:text-zinc-300 leading-relaxed font-mono">
                   <code>{code}</code>
                 </pre>
               </div>
