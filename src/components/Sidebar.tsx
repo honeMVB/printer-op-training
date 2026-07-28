@@ -11,6 +11,8 @@ export default function Sidebar() {
   const pathname = usePathname();
   const [completedModules, setCompletedModules] = useState<string[]>([]);
 
+  if (pathname === '/login') return null;
+
   useEffect(() => {
     const updateProgress = () => {
       const p = getProgress();
